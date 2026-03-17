@@ -74,9 +74,22 @@ export default function ScientificRAG() {
           <p className="mb-2 text-[10px] font-semibold tracking-[0.22em] text-(--muted) uppercase">Outcome</p>
           <p className="text-sm leading-relaxed text-(--foreground)/80">{project.outcome}</p>
         </section>
-        <div className="flex items-center gap-5 border-t border-(--border) pt-8 pb-16 text-sm">
+        <div className="flex items-center gap-5 border-t border-(--border) pt-8 pb-10 text-sm">
           <Link href="/projects" className="text-(--muted) hover:text-foreground transition-colors">← All projects</Link>
         </div>
+
+        {/* Contact */}
+        <section className="border-t border-(--border) pt-10 pb-16">
+          <p className="text-xs font-semibold tracking-[0.22em] text-(--muted) uppercase mb-5">Contact</p>
+          <div className="flex flex-col gap-2 text-sm text-(--foreground)/80">
+            <a href="mailto:selene.andradelopez@gmail.com" className="hover:text-foreground transition-colors w-fit">
+              selene.andradelopez@gmail.com
+            </a>
+            <a href="https://www.linkedin.com/in/selene-andrade-a23367163/" target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors w-fit">
+              linkedin.com/in/selene-andrade-a23367163 ↗
+            </a>
+          </div>
+        </section>
       </div>
     </main>
   );

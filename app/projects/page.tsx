@@ -61,6 +61,19 @@ export default function Projects() {
             <ProjectCard key={project.slug} project={project} index={i} />
           ))}
         </div>
+
+        {/* Contact */}
+        <section className="border-t border-(--border) mt-16 pt-10 pb-16">
+          <p className="text-xs font-semibold tracking-[0.22em] text-(--muted) uppercase mb-5">Contact</p>
+          <div className="flex flex-col gap-2 text-sm text-(--foreground)/80">
+            <a href="mailto:selene.andradelopez@gmail.com" className="hover:text-foreground transition-colors w-fit">
+              selene.andradelopez@gmail.com
+            </a>
+            <a href="https://www.linkedin.com/in/selene-andrade-a23367163/" target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors w-fit">
+              linkedin.com/in/selene-andrade-a23367163 ↗
+            </a>
+          </div>
+        </section>
       </div>
     </main>
   );
