@@ -1,149 +1,136 @@
+import Image from "next/image";
 import Link from "next/link";
+import { SiteHeader } from "@/components/SiteHeader";
+import { featuredProjects } from "@/app/data/projects";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gray-50 text-gray-900 p-8">
-      <section className="max-w-5xl mx-auto">
+    <main className="min-h-screen bg-[var(--background)] text-[var(--foreground)]">
+      <div className="mx-auto max-w-3xl px-5 py-8 md:px-8">
 
-        {/* Navbar */}
-        <nav className="flex justify-between items-center mb-12">
-          <div className="font-semibold"></div>
+        <SiteHeader active="/" />
 
-          <div className="flex gap-6 text-sm">
-            <Link href="/">Home</Link>
-            <Link href="/projects">Projects</Link>
-          </div>
-        </nav>
-
-        {/* Header */}
-        <header className="mb-16">
-          <h1 className="text-5xl font-bold mb-3">Selene Andrade</h1>
-          <p className="text-xl text-gray-600">
-            Data Engineer · MSc Artificial Intelligence · LLM & RAG Systems
+        {/* Hero */}
+        <section className="mb-20 pt-4">
+          <p className="mb-4 text-xs font-semibold tracking-[0.22em] text-[var(--muted)] uppercase">
+            Based in Valencia, Spain
           </p>
-          <p className="text-sm text-gray-500 mt-2">
-            Valencia, Spain
-          </p>
-        </header>
-
-        {/* About */}
-        <section className="mb-16">
-          <h2 className="text-2xl font-semibold mb-4">About</h2>
-          <p className="text-gray-700 leading-relaxed">
-            Data Engineer with experience building production data pipelines using
-            PySpark, Databricks, and AWS. Recently focused on LLM systems, designing
-            retrieval-augmented generation pipelines with hybrid search, reranking,
-            and guardrails.
-
-            Interested in systems where data engineering and machine learning meet:
-            reliable pipelines, retrieval systems, and applied AI.
+          <h1 className="text-5xl font-semibold leading-[1.1] tracking-tight md:text-6xl">
+            Selene Andrade
+          </h1>
+          <p className="mt-4 text-xl text-[var(--muted)] leading-snug">
+            Data Engineer · MSc Artificial Intelligence ·{" "}
+            <span className="text-[var(--accent)]">LLM &amp; RAG systems</span>
           </p>
         </section>
 
-        {/* Projects */}
-        <section className="mb-16">
-          <h2 className="text-2xl font-semibold mb-8">Projects</h2>
+        {/* About */}
+        <section className="mb-20">
+          <p className="text-xs font-semibold tracking-[0.22em] text-[var(--muted)] uppercase mb-5">
+            About
+          </p>
+          <p className="text-base leading-relaxed text-[var(--foreground)]/80 max-w-xl">
+            Data Engineer with experience building production data pipelines
+            using PySpark, Databricks, and AWS. Recently focused on LLM
+            systems — designing retrieval-augmented generation pipelines with
+            hybrid search, reranking, and guardrails.
+          </p>
+          <p className="mt-4 text-base leading-relaxed text-[var(--foreground)]/80 max-w-xl">
+            Interested in the intersection of data engineering and machine
+            learning: reliable pipelines, retrieval systems, and applied AI
+            that actually works in production.
+          </p>
+        </section>
 
-          {/* Project 1 */}
-          <div className="bg-white rounded-2xl shadow p-8 mb-8">
-            <h3 className="text-2xl font-bold mb-3">
-              Scientific Conversational RAG System
-            </h3>
-
-            <p className="text-gray-600 mb-6">
-              Retrieval-Augmented Generation system designed for scientific and
-              technical documents. Combines hybrid retrieval (dense + BM25),
-              multi-query expansion, and reranking to improve answer accuracy
-              in multi-document and conversational queries.
+        {/* Selected work */}
+        <section className="mb-20">
+          <div className="flex items-baseline justify-between mb-7">
+            <p className="text-xs font-semibold tracking-[0.22em] text-[var(--muted)] uppercase">
+              Selected work
             </p>
-            <div className="mb-6">
-              <p className="font-semibold mb-2">Key Contributions:</p>
-              <ul className="list-disc ml-5 text-gray-700 space-y-1">
-                <li>Hybrid search (dense + BM25) using Qdrant</li>
-                <li>Multi-query expansion to improve recall</li>
-                <li>Cross-encoder reranking for precise relevance scoring</li>
-                <li>Guardrail layer for safety and query validation</li>
-                <li>Conversational memory with SQLite / Redis persistence</li>
-              </ul>
-            </div>
-
-            <div className="mb-4">
-              <p className="font-semibold mb-1">Tech Stack:</p>
-              <p className="text-gray-700">
-                OpenAI · BGE-M3 · Qdrant · LangChain · Python · Streamlit
-              </p>
-            </div>
-
-            <div className="flex gap-4 mt-4">
-
-              <a
-                href="https://github.com/SAndrade2209/scientific-rag"
-                className="text-gray-500"
-                target="_blank" 
-              >
-                GitHub
-              </a>
-              <Link
-                href="/projects/scientific-rag"
-                className="text-blue-600 font-medium"
-              >
-                View Project →
-              </Link>
-            </div>
+            <Link
+              href="/projects"
+              className="text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
+            >
+              All projects →
+            </Link>
           </div>
 
-          {/* Project 2 */}
-          <div className="bg-white rounded-2xl shadow p-8 mb-8">
-            <h3 className="text-2xl font-bold mb-3">
-              Document Summarization Pipeline (RAG)
-            </h3>
-
-            <p className="text-gray-600 mb-4">
-              Pipeline for summarizing large collections of documents (+100 PDFs)
-              using embeddings, vector search, and LLM-based generation.
-            </p>
-
-            <div className="mb-4">
-              <p className="font-semibold mb-1">What it does:</p>
-              <ul className="list-disc ml-5 text-gray-700 space-y-1">
-                <li>Processes large document sets into structured chunks</li>
-                <li>Retrieves relevant context using vector similarity</li>
-                <li>Generates concise summaries using LLMs</li>
-              </ul>
-            </div>
-
-            <div className="mb-4">
-              <p className="font-semibold mb-1">Tech Stack:</p>
-              <p className="text-gray-700">
-                Python · OpenAI API · Embeddings · Vector Search
-              </p>
-            </div>
-
-            <div className="flex gap-4 mt-4">
+          <div className="flex flex-col gap-5">
+            {featuredProjects.map((project, i) => (
               <Link
-                href="/projects/summarization"
-                className="text-blue-600 font-medium"
+                key={project.slug}
+                href={project.href}
+                className="group flex flex-col gap-5 rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5 transition-shadow hover:shadow-md sm:flex-row sm:gap-6"
               >
-                View Project →
+                {/* Thumbnail */}
+                <div className="relative aspect-square w-full shrink-0 overflow-hidden rounded-xl bg-[var(--surface-strong)] sm:w-36">
+                  <Image
+                    src={project.image}
+                    alt={project.imageAlt}
+                    fill
+                    sizes="(max-width: 640px) 100vw, 144px"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                  />
+                </div>
+
+                {/* Meta */}
+                <div className="flex flex-col justify-between gap-3">
+                  <div>
+                    <p className="mb-1.5 text-[10px] font-semibold tracking-[0.18em] text-[var(--muted)] uppercase">
+                      {String(i + 1).padStart(2, "0")} &middot; {project.kicker}
+                    </p>
+                    <h2 className="text-base font-semibold leading-snug text-[var(--foreground)]">
+                      {project.title}
+                    </h2>
+                    <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">
+                      {project.summary}
+                    </p>
+                  </div>
+
+                  <div className="flex flex-wrap items-center gap-2">
+                    {project.stack.slice(0, 4).map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full border border-[var(--border)] px-2.5 py-0.5 text-[10px] text-[var(--muted)]"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                    <span className="ml-auto text-sm font-medium text-[var(--foreground)] group-hover:underline underline-offset-2">
+                      View →
+                    </span>
+                  </div>
+                </div>
               </Link>
-            </div>
+            ))}
           </div>
         </section>
 
         {/* Contact */}
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Contact</h2>
-          <p className="text-gray-700">Email: selene.andradelopez@gmail.com</p>
-          <a
-                href="https://www.linkedin.com/in/selene-andrade-a23367163/"
-                className="text-gray-700"
-                target="_blank" 
-              >
-                linkedin.com/in/selene-andrade-a23367163
-              </a>
+        <section className="border-t border-[var(--border)] pt-10 pb-16">
+          <p className="text-xs font-semibold tracking-[0.22em] text-[var(--muted)] uppercase mb-5">
+            Contact
+          </p>
+          <div className="flex flex-col gap-2 text-sm text-[var(--foreground)]/80">
+            <a
+              href="mailto:selene.andradelopez@gmail.com"
+              className="hover:text-[var(--foreground)] transition-colors w-fit"
+            >
+              selene.andradelopez@gmail.com
+            </a>
+            <a
+              href="https://www.linkedin.com/in/selene-andrade-a23367163/"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-[var(--foreground)] transition-colors w-fit"
+            >
+              linkedin.com/in/selene-andrade-a23367163 ↗
+            </a>
+          </div>
         </section>
 
-      </section>
+      </div>
     </main>
   );
 }

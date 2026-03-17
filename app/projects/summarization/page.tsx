@@ -1,137 +1,115 @@
+import Image from "next/image";
 import Link from "next/link";
+import { SiteHeader } from "@/components/SiteHeader";
+import { getProject } from "@/app/data/projects";
 
 export default function SummarizationProject() {
+  const project = getProject("summarization");
+
   return (
-    <main className="min-h-screen bg-gray-50 text-gray-900 p-8">
-      <section className="max-w-5xl mx-auto">
+    <main className="min-h-screen bg-[var(--background)] text-[var(--foreground)]">
+      <div className="mx-auto max-w-3xl px-5 py-8 md:px-8">
 
-        {/* Navbar */}
-        <nav className="flex justify-between items-center mb-12">
-          <div className="font-semibold">Selene Andrade</div>
+        <SiteHeader active="/projects" />
 
-          <div className="flex gap-6 text-sm">
-            <Link href="/">Home</Link>
-            <Link href="/projects">Projects</Link>
-          </div>
-        </nav>
+        {/* Hero image */}
+        <div className="relative mb-10 aspect-video w-full overflow-hidden rounded-2xl bg-[var(--surface-strong)]">
+          <Image
+            src={project.image}
+            alt={project.imageAlt}
+            fill
+            sizes="(max-width: 768px) 100vw, 768px"
+            className="object-cover"
+            priority
+          />
+        </div>
 
-        {/* Header */}
-        {/*<header className="mb-16">
-          <h1 className="text-5xl font-bold mb-3">Projects</h1>
-          <p className="text-gray-600">
-            Selected work in data engineering and AI systems
+        {/* Title block */}
+        <div className="mb-12">
+          <p className="mb-3 text-xs font-semibold tracking-[0.22em] text-[var(--muted)] uppercase">
+            {project.kicker}
           </p>
-        </header>*/}
-
-        {/* Title */}
-        <h2 className="text-3xl font-bold mb-4">
-          AI Literature Synthesis Pipeline
-        </h2>
-
-        <p className="text-gray-600 mb-8">
-          Automated pipeline for summarizing and synthesizing large collections
-          of technical documents into structured reports using LLMs, evaluation
-          loops, and iterative refinement.
-        </p>
-
-        {/* Problem */}
-        <section className="mb-8">
-          <h3 className="text-xl font-semibold mb-2">Problem</h3>
-          <p className="text-gray-700">
-            Reviewing large collections of technical documents is time-consuming and
-            error-prone. Traditional summarization approaches often miss context,
-            introduce hallucinations, or fail to maintain consistency across documents.
+          <h1 className="text-3xl font-semibold leading-snug tracking-tight md:text-4xl">
+            {project.title}
+          </h1>
+          <p className="mt-4 text-base leading-relaxed text-[var(--muted)] max-w-xl">
+            {project.longSummary}
           </p>
-        </section>
 
-        {/* Solution */}
-        <section className="mb-8">
-          <h3 className="text-xl font-semibold mb-2">Solution</h3>
-          <p className="text-gray-700">
-            Designed a multi-stage pipeline that processes documents in batches,
-            generates summaries, evaluates them against quality criteria, and
-            iteratively refines outputs before combining them into a final report.
-          </p>
-        </section>
-
-        {/* Architecture */}
-        <section className="mb-8">
-          <h3 className="text-xl font-semibold mb-4">Architecture</h3>
-
-          <div className="grid gap-3 text-sm">
-            <div className="p-3 bg-gray-100 rounded">PDF Documents</div>
-
-            <div className="p-3 bg-purple-100 rounded">
-              Chunking + Vector Store
+          {/* Metadata strip */}
+          <div className="mt-6 flex flex-wrap gap-6 border-t border-[var(--border)] pt-5 text-xs text-[var(--muted)]">
+            <div>
+              <p className="mb-0.5 font-semibold uppercase tracking-widest text-[10px]">Role</p>
+              <p>{project.role}</p>
             </div>
-
-            <div className="p-3 bg-blue-100 rounded">
-              Batch Summarization (LLM)
+            <div>
+              <p className="mb-0.5 font-semibold uppercase tracking-widest text-[10px]">Period</p>
+              <p>{project.period}</p>
             </div>
-
-            <div className="p-3 bg-yellow-100 rounded">
-              Evaluation (accuracy, completeness, tone)
-            </div>
-
-            <div className="p-3 bg-orange-100 rounded">
-              Correction Loop (LLM refinement)
-            </div>
-
-            <div className="p-3 bg-green-100 rounded">
-              Combination into Final Report
-            </div>
-
-            <div className="p-3 bg-gray-200 rounded">
-              Final Evaluation + Selection
+            <div className="flex flex-wrap gap-2 items-start">
+              {project.stack.map((tag) => (
+                <span key={tag} className="rounded-full border border-[var(--border)] px-2.5 py-0.5 text-[10px]">
+                  {tag}
+                </span>
+              ))}
             </div>
           </div>
-        </section>
+        </div>
 
-        {/* Key Design Decisions */}
-        <section className="mb-8">
-          <h3 className="text-xl font-semibold mb-2">Key Design Decisions</h3>
-
-          <ul className="list-disc ml-5 text-gray-700 space-y-1">
-            <li>Batch-based processing to handle large document sets</li>
-            <li>Evaluation-driven refinement to reduce hallucinations</li>
-            <li>Separation of summarization and combination phases</li>
-            <li>Iterative correction loops with quality thresholds</li>
-            <li>Use of vector stores for scalable document retrieval</li>
+        {/* What I built */}
+        <section className="mb-10">
+          <p className="mb-5 text-xs font-semibold tracking-[0.22em] text-[var(--muted)] uppercase">
+            What I built
+          </p>
+          <ul className="flex flex-col gap-3">
+            {project.highlights.map((item) => (
+              <li key={item} className="flex gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] px-4 py-3 text-sm leading-relaxed text-[var(--foreground)]/80">
+                <span className="mt-0.5 shrink-0 text-[var(--accent)]">◆</span>
+                {item}
+              </li>
+            ))}
           </ul>
         </section>
 
-        {/* Why it works */}
-        <section className="mb-8">
-          <h3 className="text-xl font-semibold mb-2">Why this approach works</h3>
-
-          <p className="text-gray-700">
-            Instead of relying on a single LLM pass, the system introduces evaluation
-            and correction loops that enforce quality constraints such as factual
-            accuracy, completeness, and neutral tone. This improves reliability when
-            working with large document collections.
+        {/* Pipeline */}
+        <section className="mb-10">
+          <p className="mb-5 text-xs font-semibold tracking-[0.22em] text-[var(--muted)] uppercase">
+            Pipeline
           </p>
+          <div className="flex flex-col gap-2 text-sm">
+            {[
+              "PDF documents ingested in batches",
+              "Chunking + vector store indexing",
+              "Batch summarisation (LLM)",
+              "Evaluation — accuracy, completeness, tone",
+              "Correction loop (LLM iterative refinement)",
+              "Combination into final structured report",
+              "Final evaluation + selection",
+            ].map((step, i) => (
+              <div key={step} className="flex items-center gap-3 rounded-lg border border-[var(--border)] bg-[var(--surface)] px-4 py-2.5">
+                <span className="shrink-0 text-[10px] font-semibold text-[var(--muted)] w-5">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="text-[var(--foreground)]/80">{step}</span>
+              </div>
+            ))}
+          </div>
         </section>
 
-        {/* Tech */}
-        <section className="mb-8">
-          <h3 className="text-xl font-semibold mb-2">Tech Stack</h3>
-          <p className="text-gray-700">
-            Python · OpenAI API · Vector Stores · LLM Evaluation Pipelines
-          </p>
+        {/* Outcome */}
+        <section className="mb-12 rounded-2xl border border-[var(--border)] bg-[var(--surface)] px-6 py-5">
+          <p className="mb-2 text-[10px] font-semibold tracking-[0.22em] text-[var(--muted)] uppercase">Outcome</p>
+          <p className="text-sm leading-relaxed text-[var(--foreground)]/80">{project.outcome}</p>
         </section>
 
-        {/* Navigation */}
-        <div className="flex gap-6 mt-10">
-          <Link href="/" className="text-gray-600">
-            ← Home
-          </Link>
-
-          <Link href="/projects" className="text-gray-600">
-            Projects
+        {/* Footer nav */}
+        <div className="flex items-center gap-5 border-t border-[var(--border)] pt-8 pb-16 text-sm">
+          <Link href="/projects" className="text-[var(--muted)] hover:text-[var(--foreground)] transition-colors">
+            ← All projects
           </Link>
         </div>
 
-      </section>
+      </div>
     </main>
   );
 }

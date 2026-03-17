@@ -1,100 +1,120 @@
+import Image from "next/image";
 import Link from "next/link";
+import { SiteHeader } from "@/components/SiteHeader";
+import { getProject } from "@/app/data/projects";
 
 export default function ScientificRAG() {
+  const project = getProject("scientific-rag");
+  const github = project.github;
+
   return (
-    <main className="min-h-screen bg-gray-50 text-gray-900 p-8">
-      <section className="max-w-5xl mx-auto">
+    <main className="min-h-screen bg-[var(--background)] text-[var(--foreground)]">
+      <div className="mx-auto max-w-3xl px-5 py-8 md:px-8">
 
-        {/* Navbar */}
-        <nav className="flex justify-between items-center mb-12">
-          <div className="font-semibold">Selene Andrade</div>
+        <SiteHeader active="/projects" />
 
-          <div className="flex gap-6 text-sm">
-            <Link href="/">Home</Link>
-            <Link href="/projects">Projects</Link>
+        {/* Hero image */}
+        <div className="relative mb-10 aspect-video w-full overflow-hidden rounded-2xl bg-[var(--surface-strong)]">
+          <Image
+            src={project.image}
+            alt={project.imageAlt}
+            fill
+            sizes="(max-width: 768px) 100vw, 768px"
+            className="object-cover"
+            priority
+          />
+        </div>
+
+        {/* Title block */}
+        <div className="mb-12">
+          <p className="mb-3 text-xs font-semibold tracking-[0.22em] text-[var(--muted)] uppercase">
+            {project.kicker}
+          </p>
+          <h1 className="text-3xl font-semibold leading-snug tracking-tight md:text-4xl">
+            {project.title}
+          </h1>
+          <p className="mt-4 text-base leading-relaxed text-[var(--muted)] max-w-xl">
+            {project.longSummary}
+          </p>
+
+          {/* Metadata strip */}
+          <div className="mt-6 flex flex-wrap gap-6 border-t border-[var(--border)] pt-5 text-xs text-[var(--muted)]">
+            <div>
+              <p className="mb-0.5 font-semibold uppercase tracking-widest text-[10px]">Role</p>
+              <p>{project.role}</p>
+            </div>
+            <div>
+              <p className="mb-0.5 font-semibold uppercase tracking-widest text-[10px]">Period</p>
+              <p>{project.period}</p>
+            </div>
+            <div className="flex flex-wrap gap-2 items-start">
+              {project.stack.map((tag) => (
+                <span key={tag} className="rounded-full border border-[var(--border)] px-2.5 py-0.5 text-[10px]">
+                  {tag}
+                </span>
+              ))}
+            </div>
           </div>
-        </nav>
+        </div>
 
-        {/* Header */}
-        {/*<header className="mb-16">
-          <h1 className="text-5xl font-bold mb-3">Projects</h1>
-          <p className="text-gray-600">
-            Selected work in data engineering and AI systems
+        {/* What I built */}
+        <section className="mb-10">
+          <p className="mb-5 text-xs font-semibold tracking-[0.22em] text-[var(--muted)] uppercase">
+            What I built
           </p>
-        </header>*/}
-        
-        {/* Title */}
-        <h2 className="text-3xl font-bold mb-4">
-          Scientific Conversational RAG System
-        </h2>
-
-        <p className="text-gray-600 mb-8">
-          Retrieval-Augmented Generation system designed for scientific and technical
-          documents with hybrid retrieval, reranking, and guardrails.
-        </p>
-
-        {/* Problem */}
-        <section className="mb-8">
-          <h3 className="text-xl font-semibold mb-2">Problem</h3>
-          <p className="text-gray-700">
-            Standard LLMs struggle with scientific documents due to rare terminology,
-            multi-document reasoning, and conversational context.
-          </p>
-        </section>
-
-        {/* Solution */}
-        <section className="mb-8">
-          <h3 className="text-xl font-semibold mb-2">Solution</h3>
-          <p className="text-gray-700">
-            Designed a multi-stage RAG pipeline combining query expansion,
-            hybrid search, and reranking to improve retrieval coverage and precision.
-          </p>
-        </section>
-
-        {/* Architecture */}
-        <section className="mb-8">
-          <h3 className="text-xl font-semibold mb-4">Architecture</h3>
-
-          <div className="grid gap-3 text-sm">
-            <div className="p-3 bg-gray-100 rounded">User Query</div>
-            <div className="p-3 bg-blue-100 rounded">Guardrail</div>
-            <div className="p-3 bg-purple-100 rounded">Query Expansion</div>
-            <div className="p-3 bg-yellow-100 rounded">Hybrid Retrieval</div>
-            <div className="p-3 bg-orange-100 rounded">Reranking</div>
-            <div className="p-3 bg-green-100 rounded">LLM Generation</div>
-          </div>
-        </section>
-
-        {/* Key Decisions */}
-        <section className="mb-8">
-          <h3 className="text-xl font-semibold mb-2">Key Decisions</h3>
-          <ul className="list-disc ml-5 text-gray-700 space-y-1">
-            <li>Hybrid dense + BM25 retrieval to handle rare terms</li>
-            <li>Multi-query expansion to improve recall</li>
-            <li>Reranking against intent instead of raw query</li>
+          <ul className="flex flex-col gap-3">
+            {project.highlights.map((item) => (
+              <li key={item} className="flex gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] px-4 py-3 text-sm leading-relaxed text-[var(--foreground)]/80">
+                <span className="mt-0.5 shrink-0 text-[var(--accent)]">◆</span>
+                {item}
+              </li>
+            ))}
           </ul>
         </section>
 
-        {/* Links */}
-        <div className="flex gap-6 mt-10">
-          <Link href="/" className="text-gray-600">
-            ← Home
-          </Link>
+        {/* Pipeline */}
+        <section className="mb-10">
+          <p className="mb-5 text-xs font-semibold tracking-[0.22em] text-[var(--muted)] uppercase">
+            Pipeline
+          </p>
+          <div className="flex flex-col gap-2 text-sm">
+            {[
+              "User Query",
+              "Guardrail layer",
+              "Query expansion (multi-query)",
+              "Hybrid retrieval — dense + BM25 (Qdrant)",
+              "Cross-encoder reranking",
+              "LLM generation with conversational memory",
+            ].map((step, i) => (
+              <div key={step} className="flex items-center gap-3 rounded-lg border border-[var(--border)] bg-[var(--surface)] px-4 py-2.5">
+                <span className="shrink-0 text-[10px] font-semibold text-[var(--muted)] w-5">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="text-[var(--foreground)]/80">{step}</span>
+              </div>
+            ))}
+          </div>
+        </section>
 
-          <Link href="/projects" className="text-gray-600">
-            Projects
-          </Link>
+        {/* Outcome */}
+        <section className="mb-12 rounded-2xl border border-[var(--border)] bg-[var(--surface)] px-6 py-5">
+          <p className="mb-2 text-[10px] font-semibold tracking-[0.22em] text-[var(--muted)] uppercase">Outcome</p>
+          <p className="text-sm leading-relaxed text-[var(--foreground)]/80">{project.outcome}</p>
+        </section>
 
-          <a
-            href="https://github.com/SAndrade2209/scientific-rag"
-            className="text-blue-600"
-            target="_blank"
-          >
-            GitHub →
-          </a>
+        {/* Footer nav */}
+        <div className="flex items-center gap-5 border-t border-[var(--border)] pt-8 pb-16 text-sm">
+          <Link href="/projects" className="text-[var(--muted)] hover:text-[var(--foreground)] transition-colors">
+            ← All projects
+          </Link>
+          {github && (
+            <a href={github} target="_blank" rel="noreferrer" className="ml-auto font-medium text-foreground hover:underline underline-offset-2">
+              GitHub ↗
+            </a>
+          )}
         </div>
 
-      </section>
+      </div>
     </main>
   );
 }
