@@ -2,43 +2,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { SiteHeader } from "@/components/SiteHeader";
 import { getProject } from "@/app/data/projects";
-
 export default function ScientificRAG() {
   const project = getProject("scientific-rag");
   const github = project.github;
-
   return (
-    <main className="min-h-screen bg-[var(--background)] text-[var(--foreground)]">
+    <main className="min-h-screen bg-background text-foreground">
       <div className="mx-auto max-w-3xl px-5 py-8 md:px-8">
-
         <SiteHeader active="/projects" />
-
-        {/* Hero image */}
-        <div className="relative mb-10 aspect-video w-full overflow-hidden rounded-2xl bg-[var(--surface-strong)]">
-          <Image
-            src={project.image}
-            alt={project.imageAlt}
-            fill
-            sizes="(max-width: 768px) 100vw, 768px"
-            className="object-cover"
-            priority
-          />
+        <div className="relative mb-10 aspect-video w-full overflow-hidden rounded-2xl bg-(--surface-strong)">
+          <Image src={project.image} alt={project.imageAlt} fill sizes="(max-width: 768px) 100vw, 768px" className="object-cover" priority />
         </div>
-
-        {/* Title block */}
         <div className="mb-12">
-          <p className="mb-3 text-xs font-semibold tracking-[0.22em] text-[var(--muted)] uppercase">
-            {project.kicker}
-          </p>
-          <h1 className="text-3xl font-semibold leading-snug tracking-tight md:text-4xl">
-            {project.title}
-          </h1>
-          <p className="mt-4 text-base leading-relaxed text-[var(--muted)] max-w-xl">
-            {project.longSummary}
-          </p>
-
-          {/* Metadata strip */}
-          <div className="mt-6 flex flex-wrap gap-6 border-t border-[var(--border)] pt-5 text-xs text-[var(--muted)]">
+          <p className="mb-3 text-xs font-semibold tracking-[0.22em] text-(--muted) uppercase">{project.kicker}</p>
+          <h1 className="text-3xl font-semibold leading-snug tracking-tight md:text-4xl">{project.title}</h1>
+          <p className="mt-4 text-base leading-relaxed text-(--muted) max-w-xl">{project.longSummary}</p>
+          <div className="mt-6 flex flex-wrap gap-6 border-t border-(--border) pt-5 text-xs text-(--muted)">
             <div>
               <p className="mb-0.5 font-semibold uppercase tracking-widest text-[10px]">Role</p>
               <p>{project.role}</p>
@@ -49,71 +27,43 @@ export default function ScientificRAG() {
             </div>
             <div className="flex flex-wrap gap-2 items-start">
               {project.stack.map((tag) => (
-                <span key={tag} className="rounded-full border border-[var(--border)] px-2.5 py-0.5 text-[10px]">
-                  {tag}
-                </span>
+                <span key={tag} className="rounded-full border border-(--border) px-2.5 py-0.5 text-[10px]">{tag}</span>
               ))}
             </div>
           </div>
         </div>
-
-        {/* What I built */}
         <section className="mb-10">
-          <p className="mb-5 text-xs font-semibold tracking-[0.22em] text-[var(--muted)] uppercase">
-            What I built
-          </p>
+          <p className="mb-5 text-xs font-semibold tracking-[0.22em] text-(--muted) uppercase">What I built</p>
           <ul className="flex flex-col gap-3">
             {project.highlights.map((item) => (
-              <li key={item} className="flex gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] px-4 py-3 text-sm leading-relaxed text-[var(--foreground)]/80">
-                <span className="mt-0.5 shrink-0 text-[var(--accent)]">◆</span>
+              <li key={item} className="flex gap-3 rounded-xl border border-(--border) bg-(--surface) px-4 py-3 text-sm leading-relaxed text-(--foreground)/80">
+                <span className="mt-0.5 shrink-0 text-(--accent)">&#9670;</span>
                 {item}
               </li>
             ))}
           </ul>
         </section>
-
-        {/* Pipeline */}
         <section className="mb-10">
-          <p className="mb-5 text-xs font-semibold tracking-[0.22em] text-[var(--muted)] uppercase">
-            Pipeline
-          </p>
+          <p className="mb-5 text-xs font-semibold tracking-[0.22em] text-(--muted) uppercase">Pipeline</p>
           <div className="flex flex-col gap-2 text-sm">
-            {[
-              "User Query",
-              "Guardrail layer",
-              "Query expansion (multi-query)",
-              "Hybrid retrieval — dense + BM25 (Qdrant)",
-              "Cross-encoder reranking",
-              "LLM generation with conversational memory",
-            ].map((step, i) => (
-              <div key={step} className="flex items-center gap-3 rounded-lg border border-[var(--border)] bg-[var(--surface)] px-4 py-2.5">
-                <span className="shrink-0 text-[10px] font-semibold text-[var(--muted)] w-5">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span className="text-[var(--foreground)]/80">{step}</span>
+            {["User Query","Guardrail layer","Query expansion (multi-query)","Hybrid retrieval — dense + BM25 (Qdrant)","Cross-encoder reranking","LLM generation with conversational memory"].map((step, i) => (
+              <div key={step} className="flex items-center gap-3 rounded-lg border border-(--border) bg-(--surface) px-4 py-2.5">
+                <span className="shrink-0 text-[10px] font-semibold text-(--muted) w-5">{String(i + 1).padStart(2, "0")}</span>
+                <span className="text-(--foreground)/80">{step}</span>
               </div>
             ))}
           </div>
         </section>
-
-        {/* Outcome */}
-        <section className="mb-12 rounded-2xl border border-[var(--border)] bg-[var(--surface)] px-6 py-5">
-          <p className="mb-2 text-[10px] font-semibold tracking-[0.22em] text-[var(--muted)] uppercase">Outcome</p>
-          <p className="text-sm leading-relaxed text-[var(--foreground)]/80">{project.outcome}</p>
+        <section className="mb-12 rounded-2xl border border-(--border) bg-(--surface) px-6 py-5">
+          <p className="mb-2 text-[10px] font-semibold tracking-[0.22em] text-(--muted) uppercase">Outcome</p>
+          <p className="text-sm leading-relaxed text-(--foreground)/80">{project.outcome}</p>
         </section>
-
-        {/* Footer nav */}
-        <div className="flex items-center gap-5 border-t border-[var(--border)] pt-8 pb-16 text-sm">
-          <Link href="/projects" className="text-[var(--muted)] hover:text-[var(--foreground)] transition-colors">
-            ← All projects
-          </Link>
+        <div className="flex items-center gap-5 border-t border-(--border) pt-8 pb-16 text-sm">
+          <Link href="/projects" className="text-(--muted) hover:text-foreground transition-colors">← All projects</Link>
           {github && (
-            <a href={github} target="_blank" rel="noreferrer" className="ml-auto font-medium text-foreground hover:underline underline-offset-2">
-              GitHub ↗
-            </a>
+            <a href={github} target="_blank" rel="noreferrer" className="ml-auto font-medium text-foreground hover:underline underline-offset-2">GitHub ↗</a>
           )}
         </div>
-
       </div>
     </main>
   );

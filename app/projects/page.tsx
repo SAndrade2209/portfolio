@@ -1,60 +1,67 @@
+import Image from "next/image";
 import Link from "next/link";
-
+import { SiteHeader } from "@/components/SiteHeader";
+import { featuredProjects } from "@/app/data/projects";
+import type { Project } from "@/app/data/projects";
+function ProjectCard({ project, index }: { project: Project; index: number }) {
+  return (
+    <Link
+      href={project.href}
+      className="group grid grid-cols-1 gap-6 rounded-2xl border border-(--border) bg-(--surface) p-6 transition-shadow hover:shadow-md sm:grid-cols-[200px_1fr]"
+    >
+      <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-(--surface-strong)">
+        <Image
+          src={project.image}
+          alt={project.imageAlt}
+          fill
+          sizes="(max-width: 640px) 100vw, 200px"
+          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+        />
+      </div>
+      <div className="flex flex-col justify-between gap-4">
+        <div>
+          <p className="mb-2 text-[10px] font-semibold tracking-[0.18em] text-(--muted) uppercase">
+            {String(index + 1).padStart(2, "0")} &middot; {project.kicker}
+          </p>
+          <h2 className="text-xl font-semibold text-foreground leading-snug">
+            {project.title}
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-(--muted)">
+            {project.summary}
+          </p>
+        </div>
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div className="flex flex-wrap gap-2">
+            {project.stack.slice(0, 4).map((tag) => (
+              <span key={tag} className="rounded-full border border-(--border) px-2.5 py-0.5 text-[10px] text-(--muted)">
+                {tag}
+              </span>
+            ))}
+          </div>
+          <span className="text-sm font-medium text-foreground group-hover:underline underline-offset-2">
+            View project &rarr;
+          </span>
+        </div>
+      </div>
+    </Link>
+  );
+}
 export default function Projects() {
   return (
-    <main className="min-h-screen bg-gray-50 text-gray-900 p-8">
-      <section className="max-w-5xl mx-auto">
-
-        {/* Navbar */}
-        <nav className="flex justify-between items-center mb-12">
-          <div className="font-semibold">Selene Andrade</div>
-
-          <div className="flex gap-6 text-sm">
-            <Link href="/">Home</Link>
-            <Link href="/projects">Projects</Link>
-          </div>
-        </nav>
-
-        {/* Header */}
-        <header className="mb-16">
-          <h1 className="text-5xl font-bold mb-3">Projects</h1>
-          <p className="text-gray-600">
-            Independet work in data engineering and AI systems
-          </p>
-        </header>
-
-        {/* Projects */}
-        <div className="space-y-6">
-
-          {/* Project 1 */}
-          <Link
-            href="/projects/scientific-rag"
-            className="block p-6 bg-white rounded-2xl shadow hover:shadow-md transition"
-          >
-            <h2 className="text-xl font-semibold">
-              Scientific Conversational RAG System
-            </h2>
-            <p className="text-gray-600 mt-2">
-              Multi-stage retrieval system with hybrid search, reranking, and guardrails.
-            </p>
-          </Link>
-
-          {/* Project 2 */}
-          <Link
-            href="/projects/summarization"
-            className="block p-6 bg-white rounded-2xl shadow hover:shadow-md transition"
-          >
-            <h2 className="text-xl font-semibold">
-              AI Literature Synthesis Pipeline
-            </h2>
-            <p className="text-gray-600 mt-2">
-              LLM pipeline with evaluation and iterative refinement for large document sets.
-            </p>
-          </Link>
-
+    <main className="min-h-screen bg-background text-foreground">
+      <div className="mx-auto max-w-3xl px-5 py-8 md:px-8">
+        <SiteHeader active="/projects" />
+        <section className="mb-14 pt-4">
+          <p className="mb-4 text-xs font-semibold tracking-[0.22em] text-(--muted) uppercase">Work</p>
+          <h1 className="text-4xl font-semibold leading-tight tracking-tight md:text-5xl">Projects</h1>
+          <p className="mt-3 text-base text-(--muted) max-w-lg">Independent work in data engineering and AI systems.</p>
+        </section>
+        <div className="flex flex-col gap-5">
+          {featuredProjects.map((project, i) => (
+            <ProjectCard key={project.slug} project={project} index={i} />
+          ))}
         </div>
-
-      </section>
+      </div>
     </main>
   );
 }
