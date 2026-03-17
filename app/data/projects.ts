@@ -75,7 +75,7 @@ const projects = {
 
 export const featuredProjects = Object.values(projects);
 
-export function getProject(slug: Project["slug"]) {
+export function getProject<S extends Project["slug"]>(slug: S) {
   return projects[slug];
 }
 
