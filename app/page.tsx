@@ -37,8 +37,7 @@ export default function Home() {
           </p>
           <p className="mt-4 text-base leading-relaxed text-(--foreground)/80 max-w-xl">
             Interested in the intersection of data engineering and machine
-            learning: reliable pipelines, retrieval systems, and applied AI
-            that actually works in production.
+            learning: reliable pipelines, retrieval systems and applied AI.
           </p>
         </section>
 
@@ -61,9 +60,9 @@ export default function Home() {
               <Link
                 key={project.slug}
                 href={project.href}
-                className="group flex flex-col gap-5 rounded-2xl border border-(--border) bg-(--surface) p-5 transition-shadow hover:shadow-md sm:flex-row sm:gap-6"
+                className="group relative flex flex-col gap-5 rounded-2xl border border-(--border) bg-(--surface) p-5 transition-shadow hover:shadow-md sm:flex-row sm:gap-6"
               >
-                {/* Thumbnail */}
+                 {/* Thumbnail */}
                 <div className="relative aspect-square w-full shrink-0 overflow-hidden rounded-xl bg-(--surface-strong) sm:w-36">
                   <Image
                     src={project.image}
@@ -87,7 +86,6 @@ export default function Home() {
                       {project.summary}
                     </p>
                   </div>
-
                   <div className="flex flex-wrap items-center gap-2">
                     {project.stack.slice(0, 4).map((tag) => (
                       <span

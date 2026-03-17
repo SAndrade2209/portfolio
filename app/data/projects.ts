@@ -3,6 +3,7 @@ import type { StaticImageData } from "next/image";
 import ragImage from "@/images/rag.png";
 import summarizeImage from "@/images/summarize.png";
 
+
 export type Project = {
   slug: "scientific-rag" | "summarization";
   title: string;
@@ -15,7 +16,7 @@ export type Project = {
   stack: string[];
   highlights: string[];
   outcome: string;
-  github?: string;
+  github?: string | undefined;
   href: string;
   image: StaticImageData;
   imageAlt: string;
@@ -24,7 +25,7 @@ export type Project = {
 const projects = {
   "scientific-rag": {
     slug: "scientific-rag",
-    title: "Scientific Conversational RAG System",
+    title: "Conversational AI System for Scientific Documents (RAG)",
     shortTitle: "Scientific RAG",
     kicker: "LLM systems · retrieval · guardrails",
     summary:
@@ -73,7 +74,7 @@ const projects = {
   },
 } satisfies Record<Project["slug"], Project>;
 
-export const featuredProjects = Object.values(projects);
+export const featuredProjects: Project[] = Object.values(projects);
 
 export function getProject<S extends Project["slug"]>(slug: S) {
   return projects[slug];
