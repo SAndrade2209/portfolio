@@ -1,8 +1,11 @@
 import type { StaticImageData } from "next/image";
 
-import ragImage from "@/images/rag.png";
-import summarizeImage from "@/images/summarize2.png";
+import ragImage from "@/images/rag_visual.svg";
+import ragIcon from "@/images/rag_icon.png";
+import summarizeImage from "@/images/summarize.svg";
 import summarizeIcon from "@/images/sum_icon.png";
+import albumIcon from "@/images/album_icon.png";
+import albumImage from "@/images/album_hero.png";
 
 
 export type Project = {
@@ -48,7 +51,7 @@ const projects = {
     github: "https://github.com/SAndrade2209/scientific-rag",
     href: "/projects/scientific-rag",
     image: ragImage,
-    iconImage: ragImage,
+    iconImage: ragIcon,
     imageAlt: "Preview of the scientific conversational RAG interface.",
   },
   summarization: {
@@ -98,8 +101,8 @@ const projects = {
     outcome:
       "The project demonstrates how combining language and vision models can enable structured analysis of visual data at scale, even in domains with no labeled datasets.\n\nIt also highlights how zero-shot approaches can be used in practice to extract meaningful signals from unstructured image collections.\n\nPublished at Sound and Music Computing Conference (SMC 2025).",
     href: "/projects/album-covers",
-    image: summarizeImage,
-    iconImage: summarizeIcon,
+    image: albumImage,
+    iconImage: albumIcon,
     imageAlt: "Preview of the zero-shot album cover analysis pipeline.",
   },
 } satisfies Record<Project["slug"], Project>;
