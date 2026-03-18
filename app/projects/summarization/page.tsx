@@ -54,8 +54,8 @@ export default function SummarizationProject() {
           </div>
         </section>
         <section className="mb-12 rounded-2xl border border-(--border) bg-(--surface) px-6 py-5">
-          <p className="mb-2 text-[10px] font-semibold tracking-[0.22em] text-(--muted) uppercase">Outcome</p>
-          <p className="text-sm leading-relaxed text-(--foreground)/80">{project.outcome}</p>
+          <p className="mb-2 text-xs font-semibold tracking-[0.22em] text-(--muted) uppercase">Outcome</p>
+          <p className="text-sm leading-relaxed text-(--foreground)/80 whitespace-pre-line">{project.outcome}</p>
         </section>
         <div className="flex items-center gap-5 border-t border-(--border) pt-8 pb-10 text-sm">
           <Link href="/projects" className="text-(--muted) hover:text-foreground transition-colors">← All projects</Link>

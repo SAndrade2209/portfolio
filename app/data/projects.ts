@@ -73,7 +73,7 @@ const projects = {
       "Vector retrieval to surface the most relevant passages before synthesis.",
     ],
     outcome:
-      "The pipeline is designed for clarity and consistency, making long-form technical review faster while preserving a human-readable final output.",
+      "The pipeline produces a fully validated, evidence-grounded technical report by combining retrieval-augmented summarization with iterative evaluation and correction loops. It ensures high factual accuracy through claim-level validation against source PDFs, structured completeness via batch-wise synthesis and controlled combination, and reduced hallucinations using strict evaluation thresholds and repair cycles.\n\nConsistent terminology and citation hygiene — including abbreviation control — and full traceability of information, as all outputs are grounded in retrieved document segments.\n\nThe final output is not just a summary, but a systematically verified synthesis, where unsupported claims are eliminated or corrected, and the best-performing version is selected when perfect convergence is not reached.\n\nThis results in a scalable, reproducible pipeline for generating long-form technical reviews with measurable quality guarantees, significantly reducing manual review effort while preserving analytical rigour.",
     href: "/projects/summarization",
     image: summarizeImage,
     iconImage: summarizeIcon,
