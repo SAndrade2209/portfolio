@@ -20,7 +20,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       </div>
       <div className="flex flex-col justify-between gap-4">
         <div>
-          <p className="mb-2 text-[10px] font-semibold tracking-[0.18em] text-(--muted) uppercase">
+          <p className="mb-2 text-xs font-semibold tracking-[0.18em] text-(--muted) uppercase">
             {String(index + 1).padStart(2, "0")} &middot; {project.kicker}
           </p>
           <h2 className="text-xl font-semibold text-foreground leading-snug">
@@ -33,7 +33,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex flex-wrap gap-2">
             {project.stack.slice(0, 4).map((tag) => (
-              <span key={tag} className="rounded-full border border-(--border) px-2.5 py-0.5 text-[10px] text-(--muted)">
+              <span key={tag} className="rounded-full border border-(--border) px-3 py-1 text-xs text-(--muted)">
                 {tag}
               </span>
             ))}
@@ -49,7 +49,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 export default function Projects() {
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <div className="mx-auto max-w-3xl px-5 py-8 md:px-8">
+      <div className="mx-auto max-w-4xl px-6 py-8 md:px-12">
         <SiteHeader active="/projects" />
         <section className="mb-14 pt-4">
           <p className="mb-4 text-xs font-semibold tracking-[0.22em] text-(--muted) uppercase">Work</p>

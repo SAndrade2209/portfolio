@@ -6,7 +6,7 @@ import { featuredProjects } from "@/app/data/projects";
 export default function Home() {
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <div className="mx-auto max-w-3xl px-5 py-8 md:px-8">
+      <div className="mx-auto max-w-4xl px-6 py-8 md:px-12">
 
         <SiteHeader active="/" />
 
@@ -21,7 +21,8 @@ export default function Home() {
           <p className="mt-4 text-xl text-(--muted) leading-snug">
             Data Engineer · MSc Artificial Intelligence ·{" "}
             <span className="text-(--accent)">LLM &amp; RAG systems</span>
-          </p><p className="mt-3 text-base text-(--foreground)/70 leading-relaxed max-w-xl">
+          </p>
+          <p className="mt-3 text-base text-(--foreground)/70 leading-relaxed">
             Building scalable data pipelines and retrieval systems.{" "}
             <span className="text-(--foreground)/90">
               Open to freelance projects in data engineering and applied AI.
@@ -60,20 +61,20 @@ export default function Home() {
           <p className="text-xs font-semibold tracking-[0.22em] text-(--muted) uppercase mb-5">
             About
           </p>
-          <div className="flex flex-col gap-4 text-base leading-relaxed text-(--foreground)/80 max-w-xl">
+          <div className="flex flex-col gap-4 text-base leading-relaxed text-(--foreground)/80">
             <p>
               Data Engineer with experience building production-grade data
-              pipelines using PySpark, Databricks, and AWS. I've worked on
+              pipelines using PySpark, Databricks, and AWS. I&apos;ve worked on
               large-scale ETL systems, focusing on performance, reliability,
               and cost efficiency.
             </p>
             <p>
-              More recently, I've been working on LLM-based systems —
+              More recently, I&apos;ve been working on LLM-based systems —
               designing retrieval-augmented generation pipelines with hybrid
               search, reranking, and guardrails.
             </p>
             <p>
-              I'm particularly interested in projects that require robust data
+              I&apos;m particularly interested in projects that require robust data
               design or applied AI systems. Currently open to freelance
               work involving scalable pipelines, data platforms, or retrieval
               systems.
@@ -234,7 +235,7 @@ export default function Home() {
                     {project.stack.slice(0, 4).map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-full border border-(--border) px-2.5 py-0.5 text-[10px] text-(--muted)"
+                        className="rounded-full border border-(--border) px-3 py-1 text-xs text-(--muted)"
                       >
                         {tag}
                       </span>

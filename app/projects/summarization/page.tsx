@@ -6,7 +6,7 @@ export default function SummarizationProject() {
   const project = getProject("summarization");
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <div className="mx-auto max-w-3xl px-5 py-8 md:px-8">
+      <div className="mx-auto max-w-4xl px-6 py-8 md:px-12">
         <SiteHeader active="/projects" />
         <div className="relative mb-10 aspect-video w-full overflow-hidden rounded-2xl bg-(--surface-strong)">
           <Image src={project.image} alt={project.imageAlt} fill sizes="(max-width: 768px) 100vw, 768px" className="object-cover" priority />
@@ -14,7 +14,7 @@ export default function SummarizationProject() {
         <div className="mb-12">
           <p className="mb-3 text-xs font-semibold tracking-[0.22em] text-(--muted) uppercase">{project.kicker}</p>
           <h1 className="text-3xl font-semibold leading-snug tracking-tight md:text-4xl">{project.title}</h1>
-          <p className="mt-4 text-base leading-relaxed text-(--muted) max-w-xl">{project.longSummary}</p>
+          <p className="mt-4 text-base leading-relaxed text-(--muted)">{project.longSummary}</p>
           <div className="mt-6 flex flex-wrap gap-6 border-t border-(--border) pt-5 text-sm text-(--muted)">
             <div>
               <p className="mb-0.5 font-semibold uppercase tracking-widest text-[15px]">Role</p>
@@ -26,7 +26,7 @@ export default function SummarizationProject() {
             </div>
             <div className="flex flex-wrap gap-2 items-start">
               {project.stack.map((tag) => (
-                <span key={tag} className="rounded-full border border-(--border) px-2.5 py-0.5 text-[13px]">{tag}</span>
+                <span key={tag} className="rounded-full border border-(--border) px-3 py-1 text-xs">{tag}</span>
               ))}
             </div>
           </div>

@@ -8,7 +8,7 @@ export default function AlbumCovers() {
 
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <div className="mx-auto max-w-3xl px-5 py-8 md:px-8">
+      <div className="mx-auto max-w-4xl px-6 py-8 md:px-12">
         <SiteHeader active="/projects" />
 
         <div className="relative mb-10 aspect-video w-full overflow-hidden rounded-2xl bg-(--surface-strong)">
@@ -58,7 +58,7 @@ export default function AlbumCovers() {
           <h1 className="text-3xl font-semibold leading-snug tracking-tight md:text-4xl">
             {project.title}
           </h1>
-          <p className="mt-4 text-base leading-relaxed text-(--muted) max-w-xl whitespace-pre-line">
+          <p className="mt-4 text-base leading-relaxed text-(--muted) whitespace-pre-line">
             {project.longSummary}
           </p>
           <div className="mt-6 flex flex-wrap gap-6 border-t border-(--border) pt-5 text-sm text-(--muted)">
@@ -74,7 +74,7 @@ export default function AlbumCovers() {
               {project.stack.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full border border-(--border) px-2.5 py-0.5 text-[13px]"
+                  className="rounded-full border border-(--border) px-3 py-1 text-xs"
                 >
                   {tag}
                 </span>
