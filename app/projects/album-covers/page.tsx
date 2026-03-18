@@ -24,7 +24,7 @@ export default function AlbumCovers() {
 
         <div className="mb-12">
           <div className="flex items-start justify-between gap-4 mb-3">
-            <p className="text-xs font-semibold tracking-[0.22em] text-(--muted) uppercase">
+            <p className="text-sm font-semibold tracking-[0.22em] text-(--muted) uppercase">
               {project.kicker}
             </p>
             <a
@@ -58,41 +58,33 @@ export default function AlbumCovers() {
           <h1 className="text-3xl font-semibold leading-snug tracking-tight md:text-4xl">
             {project.title}
           </h1>
-          <p className="mt-4 text-base leading-relaxed text-(--muted) whitespace-pre-line">
+          <p className="mt-4 text-lg leading-relaxed text-(--muted) whitespace-pre-line">
             {project.longSummary}
           </p>
-          <div className="mt-6 flex flex-wrap gap-6 border-t border-(--border) pt-5 text-sm text-(--muted)">
+          <div className="mt-6 flex flex-wrap gap-6 border-t border-(--border) pt-5 text-base text-(--muted)">
             <div>
-              <p className="mb-0.5 font-semibold uppercase tracking-widest text-[15px]">Role</p>
-              <p className="text-sm">{project.role}</p>
+              <p className="mb-0.5 text-sm font-semibold uppercase tracking-widest">Role</p>
+              <p className="text-base">{project.role}</p>
             </div>
             <div>
-              <p className="mb-0.5 font-semibold uppercase tracking-widest text-[15px]">Period</p>
-              <p className="text-sm">{project.period}</p>
+              <p className="mb-0.5 text-sm font-semibold uppercase tracking-widest">Period</p>
+              <p className="text-base">{project.period}</p>
             </div>
             <div className="flex flex-wrap gap-2 items-start">
               {project.stack.map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full border border-(--border) px-3 py-1 text-xs"
-                >
-                  {tag}
-                </span>
+                <span key={tag} className="rounded-full border border-(--border) px-3 py-1 text-sm">{tag}</span>
               ))}
             </div>
           </div>
         </div>
 
         <section className="mb-10">
-          <p className="mb-5 text-xs font-semibold tracking-[0.22em] text-(--muted) uppercase">
+          <p className="mb-5 text-sm font-semibold tracking-[0.22em] text-(--muted) uppercase">
             What I built
           </p>
           <ul className="flex flex-col gap-3">
             {project.highlights.map((item) => (
-              <li
-                key={item}
-                className="flex gap-3 rounded-xl border border-(--border) bg-(--surface) px-4 py-3 text-sm leading-relaxed text-(--foreground)/80"
-              >
+              <li key={item} className="flex gap-3 rounded-xl border border-(--border) bg-(--surface) px-4 py-3 text-base leading-relaxed text-(--foreground)/80">
                 <span className="mt-0.5 shrink-0 text-(--accent)">&#9670;</span>
                 {item}
               </li>
@@ -101,10 +93,10 @@ export default function AlbumCovers() {
         </section>
 
         <section className="mb-10">
-          <p className="mb-5 text-xs font-semibold tracking-[0.22em] text-(--muted) uppercase">
+          <p className="mb-5 text-sm font-semibold tracking-[0.22em] text-(--muted) uppercase">
             Pipeline
           </p>
-          <div className="flex flex-col gap-2 text-sm">
+          <div className="flex flex-col gap-2 text-base">
             {[
               "Dataset collection — 3,000+ Billboard album covers with genre metadata",
               "Image captioning — BLIP generates natural language descriptions per cover",
@@ -112,11 +104,8 @@ export default function AlbumCovers() {
               "Zero-shot detection — Grounding DINO locates objects without task-specific training",
               "Aggregation & analysis — object frequencies analysed across genres and artists",
             ].map((step, i) => (
-              <div
-                key={step}
-                className="flex items-center gap-3 rounded-lg border border-(--border) bg-(--surface) px-4 py-2.5"
-              >
-                <span className="shrink-0 text-[10px] font-semibold text-(--muted) w-5">
+              <div key={step} className="flex items-center gap-3 rounded-lg border border-(--border) bg-(--surface) px-4 py-2.5">
+                <span className="shrink-0 text-xs font-semibold text-(--muted) w-5">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span className="text-(--foreground)/80">{step}</span>
@@ -126,15 +115,15 @@ export default function AlbumCovers() {
         </section>
 
         <section className="mb-12 rounded-2xl border border-(--border) bg-(--surface) px-6 py-5">
-          <p className="mb-2 text-[10px] font-semibold tracking-[0.22em] text-(--muted) uppercase">
+          <p className="mb-2 text-sm font-semibold tracking-[0.22em] text-(--muted) uppercase">
             Outcome
           </p>
-          <p className="text-sm leading-relaxed text-(--foreground)/80 whitespace-pre-line">
+          <p className="text-base leading-relaxed text-(--foreground)/80 whitespace-pre-line">
             {project.outcome}
           </p>
         </section>
 
-        <div className="flex items-center gap-5 border-t border-(--border) pt-8 pb-10 text-sm">
+        <div className="flex items-center gap-5 border-t border-(--border) pt-8 pb-10 text-base">
           <Link href="/projects" className="text-(--muted) hover:text-foreground transition-colors">
             ← All projects
           </Link>
@@ -142,10 +131,10 @@ export default function AlbumCovers() {
 
         {/* Contact */}
         <section className="border-t border-(--border) pt-10 pb-16">
-          <p className="text-xs font-semibold tracking-[0.22em] text-(--muted) uppercase mb-5">
+          <p className="text-sm font-semibold tracking-[0.22em] text-(--muted) uppercase mb-5">
             Contact
           </p>
-          <div className="flex flex-col gap-2 text-sm text-(--foreground)/80">
+          <div className="flex flex-col gap-2 text-base text-(--foreground)/80">
             <a
               href="mailto:selene.andradelopez@gmail.com"
               className="hover:text-foreground transition-colors w-fit"
@@ -166,4 +155,3 @@ export default function AlbumCovers() {
     </main>
   );
 }
-

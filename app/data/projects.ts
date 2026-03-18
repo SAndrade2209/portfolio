@@ -5,7 +5,7 @@ import ragIcon from "@/images/rag_icon.png";
 import summarizeImage from "@/images/summarize.svg";
 import summarizeIcon from "@/images/sum_icon.png";
 import albumIcon from "@/images/album_icon.png";
-import albumImage from "@/images/album_hero.png";
+import albumImage from "@/images/album_hero2.png";
 
 
 export type Project = {

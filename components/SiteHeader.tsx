@@ -16,7 +16,7 @@ export function SiteHeader({ active }: SiteHeaderProps) {
       <div className="flex items-center justify-between gap-4 rounded-full border border-(--border) bg-[rgba(250,248,243,0.86)] px-4 py-3 shadow-sm backdrop-blur md:px-6">
         <Link href="/" className="min-w-0">
           <p className="truncate text-[11px] font-semibold tracking-[0.22em] text-(--muted) uppercase">
-            Selene Andrade
+            Selene Andrade Lopez
           </p>
           <p className="truncate text-xs text-foreground/60">
             Data engineer · AI systems

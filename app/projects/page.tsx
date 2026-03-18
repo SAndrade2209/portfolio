@@ -20,25 +20,25 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       </div>
       <div className="flex flex-col justify-between gap-4">
         <div>
-          <p className="mb-2 text-xs font-semibold tracking-[0.18em] text-(--muted) uppercase">
+          <p className="mb-2 text-sm font-semibold tracking-[0.18em] text-(--muted) uppercase">
             {String(index + 1).padStart(2, "0")} &middot; {project.kicker}
           </p>
           <h2 className="text-xl font-semibold text-foreground leading-snug">
             {project.title}
           </h2>
-          <p className="mt-3 text-sm leading-relaxed text-(--muted)">
+          <p className="mt-3 text-base leading-relaxed text-(--muted)">
             {project.summary}
           </p>
         </div>
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex flex-wrap gap-2">
             {project.stack.slice(0, 4).map((tag) => (
-              <span key={tag} className="rounded-full border border-(--border) px-3 py-1 text-xs text-(--muted)">
+              <span key={tag} className="rounded-full border border-(--border) px-3 py-1 text-sm text-(--muted)">
                 {tag}
               </span>
             ))}
           </div>
-          <span className="text-sm font-medium text-foreground group-hover:underline underline-offset-2">
+          <span className="text-base font-medium text-foreground group-hover:underline underline-offset-2">
             View project &rarr;
           </span>
         </div>
@@ -52,9 +52,9 @@ export default function Projects() {
       <div className="mx-auto max-w-4xl px-6 py-8 md:px-12">
         <SiteHeader active="/projects" />
         <section className="mb-14 pt-4">
-          <p className="mb-4 text-xs font-semibold tracking-[0.22em] text-(--muted) uppercase">Work</p>
+          <p className="mb-4 text-sm font-semibold tracking-[0.22em] text-(--muted) uppercase">Work</p>
           <h1 className="text-4xl font-semibold leading-tight tracking-tight md:text-5xl">Projects</h1>
-          <p className="mt-3 text-base text-(--muted) max-w-lg">Independent work in data engineering and AI systems.</p>
+          <p className="mt-3 text-lg text-(--muted)">Independent work in data engineering and AI systems.</p>
         </section>
         <div className="flex flex-col gap-5">
           {featuredProjects.map((project, i) => (
@@ -64,8 +64,8 @@ export default function Projects() {
 
         {/* Contact */}
         <section className="border-t border-(--border) mt-16 pt-10 pb-16">
-          <p className="text-xs font-semibold tracking-[0.22em] text-(--muted) uppercase mb-5">Contact</p>
-          <div className="flex flex-col gap-2 text-sm text-(--foreground)/80">
+          <p className="text-sm font-semibold tracking-[0.22em] text-(--muted) uppercase mb-5">Contact</p>
+          <div className="flex flex-col gap-2 text-base text-(--foreground)/80">
             <a href="mailto:selene.andradelopez@gmail.com" className="hover:text-foreground transition-colors w-fit">
               selene.andradelopez@gmail.com
             </a>
