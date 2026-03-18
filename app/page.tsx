@@ -33,7 +33,7 @@ export default function Home() {
         {/* CV / GitHub / LinkedIn */}
         <div className="mb-12 -mt-6 flex flex-wrap gap-3">
           <a
-            href="/cv032026.pdf"
+            href="/cv_andrade.pdf"
             download
             className="inline-flex items-center gap-2 rounded-full border border-(--border) bg-(--surface) px-4 py-2 text-sm font-medium text-(--muted) transition-colors hover:text-foreground hover:border-foreground/30"
           >
@@ -96,41 +96,62 @@ export default function Home() {
 
         {/* Experience */}
         <section className="mb-12">
-          <p className="text-sm font-semibold tracking-[0.22em] text-(--muted) uppercase mb-7">
+          <p className="text-sm font-semibold tracking-[0.22em] text-(--muted) uppercase mb-5">
             Experience
           </p>
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-10">
+
+            {/* Windifferent */}
             <div>
               <div className="flex items-baseline justify-between mb-1">
                 <p className="text-base font-semibold text-foreground">
                   Data Engineer —{" "}
-                  <span className="text-(--muted) font-normal">
-                    Windifferent (BairesDev)
-                  </span>
+                  <span className="text-(--muted) font-normal">Windifferent (BairesDev)</span>
                 </p>
-                <p className="text-sm text-(--muted) shrink-0 ml-4">
-                  2022 — Present
-                </p>
+                <p className="text-sm text-(--muted) shrink-0 ml-4">2022 — Present</p>
               </div>
               <ul className="mt-3 flex flex-col gap-1.5 text-base text-(--foreground)/75 leading-relaxed">
                 <li>Design and maintain large-scale ETL pipelines using PySpark on Databricks.</li>
-                <li>Orchestrate data workflows with Airflow and AWS.</li>
-                <li>Work with Delta Lake and Unity Catalog for governance and data quality.</li>
+                <li>Orchestrate data workflows with Airflow from ingestion to consumption.</li>
+                <li>Work with AWS services for data such as Glue, S3, EventBridge</li>
+                <li>Work with Delta Lake and Unity Catalog for governance, schema validation, and data quality.</li>
+                <li>Helped design and implement the company&apos;s Delta Lake from scratch, supporting multi-source ingestion (JSON, Parquet, CSV, Databases) across a medallion architecture  at millions-of-records scale.</li>
+                <li>Implement version control to ensure code quality and production stability.</li>
+                <li>Write unit tests and automate Delta Lake maintenance using VACUUM and OPTIMIZE commands.</li>
+                <li>Apply data partitioning strategies aligned with business requirements to improve query performance and reduce resource usage.</li>
               </ul>
               <div className="mt-4 pl-3 border-l border-(--border) flex flex-col gap-1 text-base text-(--foreground)/60">
-                <p className="text-sm font-semibold tracking-wide text-(--muted) uppercase mb-1">
-                  Highlights
-                </p>
-                <p>– Reduced storage costs by ~50% through Spark optimizations</p>
-                <p>– Built testing pipelines for production stability</p>
+                <p className="text-sm font-semibold tracking-wide text-(--muted) uppercase mb-1">Highlights</p>
+                <p>– Designed and built the company&apos;s Delta Lake from scratch using medallion architecture, handling millions of records from multiple formats</p>
+                <p>– Reduced storage costs by ~50% through Spark logic optimisation and data handling best practices</p>
+                <p>– Implemented automated Delta Lake maintenance reducing manual operational overhead</p>
               </div>
             </div>
+
+            {/* Sinerware */}
+            <div>
+              <div className="flex items-baseline justify-between mb-1">
+                <p className="text-base font-semibold text-foreground">
+                  Software Development Engineer —{" "}
+                  <span className="text-(--muted) font-normal">Sinerware SAS</span>
+                </p>
+                <p className="text-sm text-(--muted) shrink-0 ml-4">2020 — 2022</p>
+              </div>
+              <ul className="mt-3 flex flex-col gap-1.5 text-base text-(--foreground)/75 leading-relaxed">
+                <li>Maintained and optimised databases, including implementation of database objects and functional documentation.</li>
+                <li>Reduced load times for system pages and trays by 95% through targeted performance improvements.</li>
+                <li>Involved across the full project lifecycle — planning, design, development, testing, and delivery.</li>
+                <li>Provided client support and training on developed systems.</li>
+                <li>Developed software using Oracle PL/SQL, Oracle APEX, Python, and REST APIs.</li>
+              </ul>
+            </div>
+
           </div>
         </section>
 
         {/* Education */}
         <section className="mb-12">
-          <p className="text-sm font-semibold tracking-[0.22em] text-(--muted) uppercase mb-7">
+          <p className="text-sm font-semibold tracking-[0.22em] text-(--muted) uppercase mb-5">
             Education
           </p>
           <div className="flex flex-col gap-6">

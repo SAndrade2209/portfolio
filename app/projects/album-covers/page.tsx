@@ -16,7 +16,8 @@ export default function AlbumCovers() {
             src={project.image}
             alt={project.imageAlt}
             fill
-            sizes="(max-width: 768px) 100vw, 768px"
+            sizes="(max-width: 768px) 100vw, 896px"
+            quality={90}
             className="object-cover"
             priority
           />

@@ -2,7 +2,7 @@ import type { StaticImageData } from "next/image";
 
 import ragImage from "@/images/rag_visual.svg";
 import ragIcon from "@/images/rag_icon.png";
-import summarizeImage from "@/images/summarize.svg";
+import summarizeImage from "@/images/summarize_1.png";
 import summarizeIcon from "@/images/sum_icon.png";
 import albumIcon from "@/images/album_icon.png";
 import albumImage from "@/images/album_hero2.png";

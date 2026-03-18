@@ -9,7 +9,7 @@ export default function SummarizationProject() {
       <div className="mx-auto max-w-4xl px-6 py-8 md:px-12">
         <SiteHeader active="/projects" />
         <div className="relative mb-10 aspect-video w-full overflow-hidden rounded-2xl bg-(--surface-strong)">
-          <Image src={project.image} alt={project.imageAlt} fill sizes="(max-width: 768px) 100vw, 768px" className="object-cover" priority />
+          <Image src={project.image} alt={project.imageAlt} fill sizes="(max-width: 768px) 100vw, 896px" quality={90} className="object-cover" priority />
         </div>
         <div className="mb-12">
           <p className="mb-3 text-sm font-semibold tracking-[0.22em] text-(--muted) uppercase">{project.kicker}</p>
