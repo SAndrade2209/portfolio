@@ -11,7 +11,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
     >
       <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-(--surface-strong)">
         <Image
-          src={project.image}
+          src={project.iconImage}
           alt={project.imageAlt}
           fill
           sizes="(max-width: 640px) 100vw, 200px"

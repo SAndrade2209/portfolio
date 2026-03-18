@@ -1,11 +1,12 @@
 import type { StaticImageData } from "next/image";
 
 import ragImage from "@/images/rag.png";
-import summarizeImage from "@/images/summarize.png";
+import summarizeImage from "@/images/summarize2.png";
+import summarizeIcon from "@/images/sum_icon.png";
 
 
 export type Project = {
-  slug: "scientific-rag" | "summarization";
+  slug: "scientific-rag" | "summarization" | "album-covers";
   title: string;
   shortTitle: string;
   kicker: string;
@@ -19,6 +20,7 @@ export type Project = {
   github?: string | undefined;
   href: string;
   image: StaticImageData;
+  iconImage: StaticImageData;
   imageAlt: string;
 };
 
@@ -46,6 +48,7 @@ const projects = {
     github: "https://github.com/SAndrade2209/scientific-rag",
     href: "/projects/scientific-rag",
     image: ragImage,
+    iconImage: ragImage,
     imageAlt: "Preview of the scientific conversational RAG interface.",
   },
   summarization: {
@@ -58,7 +61,7 @@ const projects = {
     longSummary:
       "This project turns a large stack of technical PDFs into something a human can actually use: staged summarisation, evaluation loops, and a final synthesis step that keeps outputs concise and grounded.",
     role: "Pipeline design, prompt orchestration, quality evaluation",
-    period: "Independent project · 2025",
+    period: "Project developed for a U.S.-based startup · 2025",
     stack: ["Python", "OpenAI API", "Embeddings", "Vector Search", "Evaluation loops"],
     highlights: [
       "Batch-based processing for large document sets without losing traceability.",
@@ -70,7 +73,34 @@ const projects = {
       "The pipeline is designed for clarity and consistency, making long-form technical review faster while preserving a human-readable final output.",
     href: "/projects/summarization",
     image: summarizeImage,
+    iconImage: summarizeIcon,
     imageAlt: "Preview of the literature synthesis and summarisation workflow.",
+  },
+  "album-covers": {
+    slug: "album-covers",
+    title: "Zero-shot Object Detection for Music Album Covers",
+    shortTitle: "Zero-shot Visual Analysis",
+    kicker: "Computer vision · multimodal ML · zero-shot learning",
+    summary:
+      "A large-scale pipeline for analysing visual patterns in music album covers using image captioning and zero-shot object detection.",
+    longSummary:
+      "This project explores how visual elements in music album covers can be analysed at scale using modern vision-language models.\n\nI built a pipeline that combines image captioning and zero-shot object detection to identify and quantify objects across thousands of album covers, without requiring task-specific training data.\n\nThe goal was to move beyond qualitative analysis and enable a more systematic understanding of visual patterns across genres, artists, and time.",
+    role: "Research, pipeline design, data collection, model integration, evaluation",
+    period: "Research project · MSc Artificial Intelligence · 2025",
+    stack: ["Python", "PyTorch", "Hugging Face", "BLIP", "Grounding DINO", "Transformers"],
+    highlights: [
+      "Built a dataset of 3,000+ Billboard album covers with associated metadata.",
+      "Designed a two-stage pipeline: image captioning (BLIP) + zero-shot detection (Grounding DINO).",
+      "Generated object candidates from captions to guide open-set detection.",
+      "Achieved ~71% mAP in zero-shot detection without task-specific training.",
+      'Analysed object distributions across genres, revealing distinct visual patterns (e.g. "skull" in metal, "cowboy hat" in country).',
+    ],
+    outcome:
+      "The project demonstrates how combining language and vision models can enable structured analysis of visual data at scale, even in domains with no labeled datasets.\n\nIt also highlights how zero-shot approaches can be used in practice to extract meaningful signals from unstructured image collections.\n\nPublished at Sound and Music Computing Conference (SMC 2025).",
+    href: "/projects/album-covers",
+    image: summarizeImage,
+    iconImage: summarizeIcon,
+    imageAlt: "Preview of the zero-shot album cover analysis pipeline.",
   },
 } satisfies Record<Project["slug"], Project>;
 
@@ -79,4 +109,3 @@ export const featuredProjects: Project[] = Object.values(projects);
 export function getProject<S extends Project["slug"]>(slug: S) {
   return projects[slug];
 }
-

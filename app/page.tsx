@@ -21,24 +21,168 @@ export default function Home() {
           <p className="mt-4 text-xl text-(--muted) leading-snug">
             Data Engineer · MSc Artificial Intelligence ·{" "}
             <span className="text-(--accent)">LLM &amp; RAG systems</span>
+          </p><p className="mt-3 text-base text-(--foreground)/70 leading-relaxed max-w-xl">
+            Building scalable data pipelines and retrieval systems.{" "}
+            <span className="text-(--foreground)/90">
+              Open to freelance projects in data engineering and applied AI.
+            </span>
           </p>
         </section>
+
+        {/* CV Download */}
+        <div className="mb-20 -mt-12">
+          <a
+            href="/cv_andrade.pdf"
+            download
+            className="inline-flex items-center gap-2 rounded-full border border-(--border) bg-(--surface) px-4 py-2 text-xs font-medium text-(--muted) transition-colors hover:text-foreground hover:border-foreground/30"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="13"
+              height="13"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            Download CV
+          </a>
+        </div>
 
         {/* About */}
         <section className="mb-20">
           <p className="text-xs font-semibold tracking-[0.22em] text-(--muted) uppercase mb-5">
             About
           </p>
-          <p className="text-base leading-relaxed text-(--foreground)/80 max-w-xl">
-            Data Engineer with experience building production data pipelines
-            using PySpark, Databricks, and AWS. Recently focused on LLM
-            systems — designing retrieval-augmented generation pipelines with
-            hybrid search, reranking, and guardrails.
+          <div className="flex flex-col gap-4 text-base leading-relaxed text-(--foreground)/80 max-w-xl">
+            <p>
+              Data Engineer with experience building production-grade data
+              pipelines using PySpark, Databricks, and AWS. I've worked on
+              large-scale ETL systems, focusing on performance, reliability,
+              and cost efficiency.
+            </p>
+            <p>
+              More recently, I've been working on LLM-based systems —
+              designing retrieval-augmented generation pipelines with hybrid
+              search, reranking, and guardrails.
+            </p>
+            <p>
+              I'm particularly interested in projects that require robust data
+              design or applied AI systems. Currently open to freelance
+              work involving scalable pipelines, data platforms, or retrieval
+              systems.
+            </p>
+          </div>
+        </section>
+
+        {/* Experience */}
+        <section className="mb-20">
+          <p className="text-xs font-semibold tracking-[0.22em] text-(--muted) uppercase mb-7">
+            Experience
           </p>
-          <p className="mt-4 text-base leading-relaxed text-(--foreground)/80 max-w-xl">
-            Interested in the intersection of data engineering and machine
-            learning: reliable pipelines, retrieval systems and applied AI.
+          <div className="flex flex-col gap-8">
+            <div>
+              <div className="flex items-baseline justify-between mb-1">
+                <p className="text-sm font-semibold text-foreground">
+                  Data Engineer —{" "}
+                  <span className="text-(--muted) font-normal">
+                    Windifferent (BairesDev)
+                  </span>
+                </p>
+                <p className="text-xs text-(--muted) shrink-0 ml-4">
+                  2022 — Present
+                </p>
+              </div>
+              <ul className="mt-3 flex flex-col gap-1.5 text-sm text-(--foreground)/75 leading-relaxed">
+                <li>
+                  Design and maintain large-scale ETL pipelines using PySpark
+                  on Databricks.
+                </li>
+                <li>
+                  Orchestrate data workflows with Airflow and AWS.
+                </li>
+                <li>
+                  Work with Delta Lake and Unity Catalog for governance and
+                  data quality.
+                </li>
+              </ul>
+              <div className="mt-4 pl-3 border-l border-(--border) flex flex-col gap-1 text-sm text-(--foreground)/60">
+                <p className="text-xs font-semibold tracking-wide text-(--muted) uppercase mb-1">
+                  Highlights
+                </p>
+                <p>– Reduced storage costs by ~50% through Spark optimizations</p>
+                <p>– Built testing pipelines for production stability</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Education */}
+        <section className="mb-20">
+          <p className="text-xs font-semibold tracking-[0.22em] text-(--muted) uppercase mb-7">
+            Education
           </p>
+          <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-0.5">
+              <div className="flex items-baseline justify-between">
+                <p className="text-sm font-semibold text-foreground">
+                  MSc Artificial Intelligence
+                </p>
+                <p className="text-xs text-(--muted) shrink-0 ml-4">
+                  2022 — 2025
+                </p>
+              </div>
+              <p className="text-sm text-(--muted)">
+                Johannes Kepler University, Austria
+              </p>
+              <p className="text-xs text-(--foreground)/50 mt-0.5">
+                Graduated with honors
+              </p>
+            </div>
+            <div className="flex flex-col gap-0.5">
+              <div className="flex items-baseline justify-between">
+                <p className="text-sm font-semibold text-foreground">
+                  BSc Electronic Engineering
+                </p>
+                <p className="text-xs text-(--muted) shrink-0 ml-4">
+                  2015 — 2020
+                </p>
+              </div>
+              <p className="text-sm text-(--muted)">
+                Universidad del Valle, Colombia
+              </p>
+              <p className="text-xs text-(--foreground)/50 mt-0.5">
+                Thesis with honorable mention
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* What I work on */}
+        <section className="mb-20">
+          <p className="text-xs font-semibold tracking-[0.22em] text-(--muted) uppercase mb-5">
+            What I work on
+          </p>
+          <ul className="flex flex-col gap-2 text-sm text-(--foreground)/75 leading-relaxed">
+            {[
+              "Scalable ETL and data pipelines",
+              "Data platform design (lakehouse, batch processing)",
+              "Retrieval systems and RAG pipelines",
+              "Document processing and summarisation systems",
+              "Performance optimization and cost reduction in data workflows",
+            ].map((item) => (
+              <li key={item} className="flex items-start gap-2">
+                <span className="text-(--muted) mt-px">–</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
         </section>
 
         {/* Selected work */}
@@ -62,10 +206,10 @@ export default function Home() {
                 href={project.href}
                 className="group relative flex flex-col gap-5 rounded-2xl border border-(--border) bg-(--surface) p-5 transition-shadow hover:shadow-md sm:flex-row sm:gap-6"
               >
-                 {/* Thumbnail */}
+                {/* Thumbnail */}
                 <div className="relative aspect-square w-full shrink-0 overflow-hidden rounded-xl bg-(--surface-strong) sm:w-36">
                   <Image
-                    src={project.image}
+                    src={project.iconImage}
                     alt={project.imageAlt}
                     fill
                     sizes="(max-width: 640px) 100vw, 144px"
