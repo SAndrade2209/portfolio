@@ -38,7 +38,7 @@ const projects = {
     longSummary:
       "I designed this project to make scientific question answering feel more dependable: better recall for niche terminology, better ranking for complex queries, and safer interactions through validation before generation.",
     role: "System design, retrieval strategy, evaluation, UX framing",
-    period: "Independent project · 2025",
+    period: "Independent project · 2026",
     stack: ["Python", "LangChain", "Qdrant", "BGE-M3", "OpenAI", "Streamlit"],
     highlights: [
       "Hybrid retrieval with dense vectors and BM25 to capture both semantics and rare terminology.",

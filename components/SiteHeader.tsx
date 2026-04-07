@@ -12,28 +12,25 @@ const navItems = [
 
 export function SiteHeader({ active }: SiteHeaderProps) {
   return (
-    <header className="sticky top-4 z-20 mb-16">
-      <div className="flex items-center justify-between gap-4 rounded-full border border-(--border) bg-[rgba(250,248,243,0.86)] px-4 py-3 shadow-sm backdrop-blur md:px-6">
+    <header className="sticky top-5 z-20 mb-20">
+      <div className="flex items-center justify-between gap-6 rounded-full border border-border/80 bg-[rgba(245,241,232,0.9)] px-6 py-3 shadow-[0_1px_3px_rgba(0,0,0,0.04)] backdrop-blur-xl">
         <Link href="/" className="min-w-0">
-          <p className="truncate text-[11px] font-semibold tracking-[0.22em] text-(--muted) uppercase">
-            Selene Andrade Lopez
-          </p>
-          <p className="truncate text-xs text-foreground/60">
-            Data engineer · AI systems
+          <p className="truncate text-[13px] font-semibold tracking-tight text-primary">
+            Selene Andrade López
           </p>
         </Link>
 
-        <nav className="flex items-center gap-1 rounded-full border border-(--border) bg-white/60 p-1">
+        <nav className="flex items-center gap-0.5 rounded-full bg-background/60 p-1">
           {navItems.map((item) => {
             const isActive = item.href === active;
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`rounded-full px-4 py-1.5 text-sm transition-colors ${
+                className={`rounded-full px-5 py-1.5 text-[13px] transition-all ${
                   isActive
-                    ? "bg-foreground text-background font-medium"
-                    : "text-(--muted) hover:text-foreground"
+                    ? "bg-primary text-white font-medium shadow-sm"
+                    : "text-muted hover:text-primary"
                 }`}
               >
                 {item.label}
@@ -45,4 +42,3 @@ export function SiteHeader({ active }: SiteHeaderProps) {
     </header>
   );
 }
-

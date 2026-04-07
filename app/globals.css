@@ -1,14 +1,20 @@
 @import "tailwindcss";
+
 :root {
-  --background:    #faf8f3;
-  --foreground:    #1e1e1c;
-  --surface:       #f2efe8;
-  --surface-strong:#e8e4da;
-  --border:        #e0dcd2;
-  --muted:         #7a786f;
-  --accent:        #5c6e5b;
+  --primary:       #1E3A5F;
+  --secondary:     #3A7CA5;
+  --background:    #F5F1E8;
+  --surface:       #FFFFFF;
+  --surface-strong:#EDEAE2;
+  --border:        #E4E0D7;
+  --foreground:    #1A1A1A;
+  --muted:         #7C8290;
+  --accent:        #3A7CA5;
 }
+
 @theme inline {
+  --color-primary:       var(--primary);
+  --color-secondary:     var(--secondary);
   --color-background:    var(--background);
   --color-foreground:    var(--foreground);
   --color-surface:       var(--surface);
@@ -16,21 +22,40 @@
   --color-border:        var(--border);
   --color-muted:         var(--muted);
   --color-accent:        var(--accent);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
+
 html {
   background: var(--background);
   color: var(--foreground);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
-  font-size: 18px;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 15px;
   line-height: 1.7;
+  letter-spacing: -0.01em;
 }
+
 *, *::before, *::after {
   box-sizing: border-box;
+}
+
+a, button {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::selection {
+  background: rgba(58, 124, 165, 0.15);
+  color: var(--primary);
+}
+
+.section-alt {
+  background: var(--surface);
 }
