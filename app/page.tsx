@@ -21,9 +21,9 @@ export default function Home() {
                 Data Engineer · AI Systems
               </p>
               <h1 className="text-[2.75rem] font-bold leading-[1.08] tracking-[-0.025em] text-primary md:text-[3.25rem]">
-                Hi! I'm Selene. I build Data systems
+                Hi! I&apos;m Selene and
                 <br className="hidden sm:block" />
-                that drive decisions
+                I build Data Systems
               </h1>
               <p className="mt-6 text-[17px] leading-[1.75] text-foreground/55 max-w-lg">
                 Scalable pipelines, lakehouse architectures, and retrieval-augmented
@@ -62,15 +62,22 @@ export default function Home() {
             {/* Right — pipeline visual + terminal */}
             <div className="flex flex-col gap-5 w-full max-w-xs shrink-0">
 
-              {/* Pipeline flow */}
+              {/* Interested in */}
               <div className="rounded-2xl border border-border bg-surface p-6">
-                <p className="text-[10px] font-semibold tracking-[0.2em] text-muted/50 uppercase mb-4">Pipeline</p>
+                <p className="text-[10px] font-semibold tracking-[0.2em] text-muted/50 uppercase mb-4">Interested in</p>
                 <div className="flex flex-col gap-3">
-                  {["Data Sources", "Airflow", "PySpark", "Delta Lake", "Analytics"].map((step, i) => (
-                    <div key={step} className="flex items-center gap-3.5">
-                      <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-primary/8 text-[11px] font-bold text-primary/70">{i + 1}</span>
-                      <span className="text-[13px] font-medium text-foreground/80">{step}</span>
-                      {i < 4 && <span className="ml-auto text-border text-sm">↓</span>}
+                  {[
+                    { title: "Data Engineering", sub: "Scalable pipelines & real-world systems" },
+                    { title: "Continuous Learning", sub: "Modern data tools & architectures" },
+                    { title: "AI & Data Systems", sub: "Intelligent, data-driven applications" },
+                    { title: "Open to Freelancing", sub: "Data projects & collaborations" },
+                  ].map((item, i) => (
+                    <div key={item.title} className="flex items-center gap-3.5">
+                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-primary/8 text-[11px] font-bold text-primary/70">{i + 1}</span>
+                      <div>
+                        <p className="text-[13px] font-medium text-foreground/80 leading-tight">{item.title}</p>
+                        <p className="text-[11px] text-muted/60 mt-0.5">{item.sub}</p>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -87,7 +94,6 @@ export default function Home() {
                   <p className="text-white/30">&gt; loading projects...</p>
                   <p className="text-[#28c840]/80">✔ pipelines optimized</p>
                   <p className="text-[#28c840]/80">✔ data quality improved</p>
-                  <p className="text-[#28c840]/80">✔ insights delivered</p>
                 </div>
               </div>
 
