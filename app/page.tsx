@@ -23,7 +23,7 @@ export default function Home() {
               <h1 className="text-[2.75rem] font-bold leading-[1.08] tracking-[-0.025em] text-primary md:text-[3.25rem]">
                 Hi! I&apos;m Selene and
                 <br className="hidden sm:block" />
-                I build Data Systems
+                 I build Data Systems
               </h1>
               <p className="mt-6 text-[17px] leading-[1.75] text-foreground/55 max-w-lg">
                 Scalable pipelines, lakehouse architectures, and retrieval-augmented
