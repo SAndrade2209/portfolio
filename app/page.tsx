@@ -20,10 +20,10 @@ export default function Home() {
               <p className="mb-5 text-[13px] font-medium tracking-[0.18em] text-secondary/80 uppercase">
                 Data Engineer · AI Systems
               </p>
-              <h1 className="text-[2.75rem] font-bold leading-[1.08] tracking-[-0.025em] text-primary md:text-[3.25rem]">
+              <h1 className="text-[2.2rem] font-bold leading-[1.15] tracking-[-0.025em] text-primary sm:text-[2.75rem] md:text-[3.25rem] md:leading-[1.08]">
                 Hi! I&apos;m Selene and
-                <br className="hidden sm:block" />
-                 I build Data Systems
+                <br />
+                I build Data Systems
               </h1>
               <p className="mt-6 text-[17px] leading-[1.75] text-foreground/55 max-w-lg">
                 Scalable pipelines, lakehouse architectures, and retrieval-augmented
