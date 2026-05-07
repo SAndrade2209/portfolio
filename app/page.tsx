@@ -4,6 +4,10 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { featuredProjects } from "@/app/data/projects";
 import { ProfileTabs } from "@/components/ProfileTabs";
 
+const selectedProjects = featuredProjects.filter((p) =>
+  ["paysim-fraud", "summarization", "scientific-rag"].includes(p.slug)
+);
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-background text-foreground">
@@ -49,7 +53,7 @@ export default function Home() {
                   GitHub
                 </a>
                 <a
-                  href="/cv_andrade.pdf"
+                  href="/cv07052026.pdf"
                   download
                   className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-7 py-3 text-[13px] font-medium text-muted shadow-[0_1px_2px_rgba(0,0,0,0.04)] transition-all hover:text-primary hover:border-primary/20 hover:-translate-y-0.5"
                 >
@@ -147,7 +151,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {featuredProjects.map((project, i) => (
+            {selectedProjects.map((project, i) => (
               <Link
                 key={project.slug}
                 href={project.href}

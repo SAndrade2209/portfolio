@@ -122,7 +122,7 @@ const projects = {
     highlights: [
       "Medallion architecture across four layers: Landing (GCS) → Raw (Snowflake) → Staging (dbt incremental) → Trusted (star schema).",
       "PySpark ingestion job reads 6.3M rows from GCS, enforces schema, and appends to Snowflake via the Spark Connector.",
-      "dbt incremental merge with watermark logic to avoid full table scans and prevent gaps during concurrent loads.",
+      "dbt incremental merge and transformation between layers.",
       "Star schema with fact tables (fct_fraud_events, fct_balance_movements, agg_account_balances) and SCD Type 2 dimension snapshots.",
       "dbt data quality gate blocks trusted layer population if any test fails — unique keys, not-null, accepted values, FK relationships.",
       "Airflow DAG with batch state management via Variables, supporting both automatic sequential runs and manual backfills.",
