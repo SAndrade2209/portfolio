@@ -11,6 +11,8 @@ const skills = [
 	{ name: "Delta Lake", category: "Platform" },
 	{ name: "Unity Catalog", category: "Governance" },
 	{ name: "Airflow", category: "Orchestration" },
+	{ name: "dbt", category: "Transformation" },
+	{ name: "Snowflake", category: "Warehouse" },
 	{ name: "LangChain", category: "AI" },
 	{ name: "RAG / LLMs", category: "AI" },
 ];

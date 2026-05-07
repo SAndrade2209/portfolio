@@ -33,7 +33,7 @@ export default function ScientificRAG() {
             )}
           </div>
           <h1 className="text-[2rem] font-bold leading-snug tracking-[-0.02em] text-primary md:text-[2.5rem]">{project.title}</h1>
-          <p className="mt-5 text-[16px] leading-[1.8] text-foreground/55 max-w-2xl">{project.longSummary}</p>
+          <p className="mt-5 text-[16px] leading-[1.8] text-justify text-foreground/55">{project.longSummary}</p>
           <div className="mt-8 flex flex-wrap gap-8 border-t border-border pt-6 text-[13px] text-muted">
             <div>
               <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-secondary/60">Role</p>
@@ -77,7 +77,7 @@ export default function ScientificRAG() {
 
         <section className="mb-16 rounded-2xl border border-border bg-surface px-8 py-6">
           <p className="mb-3 text-[11px] font-semibold tracking-[0.2em] text-secondary/70 uppercase">Outcome</p>
-          <p className="text-[14px] leading-[1.8] text-foreground/60">{project.outcome}</p>
+          <p className="text-[14px] leading-[1.8] text-justify text-foreground/60">{project.outcome}</p>
         </section>
 
         <div className="flex items-center border-t border-border pt-10 pb-12">

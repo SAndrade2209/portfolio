@@ -6,10 +6,12 @@ import summarizeImage from "@/images/summarize_1.png";
 import summarizeIcon from "@/images/sum_icon.png";
 import albumIcon from "@/images/album_icon.png";
 import albumImage from "@/images/album_hero2.png";
+import snowflakeHeroImage from "@/images/snowflake_project/heropaysim.png";
+import snowflakeIconImage from "@/images/snowflake_project/iconsnowflake.png";
 
 
 export type Project = {
-  slug: "scientific-rag" | "summarization" | "album-covers";
+  slug: "scientific-rag" | "summarization" | "album-covers" | "paysim-fraud";
   title: string;
   shortTitle: string;
   kicker: string;
@@ -104,6 +106,35 @@ const projects = {
     image: albumImage,
     iconImage: albumIcon,
     imageAlt: "Preview of the zero-shot album cover analysis pipeline.",
+  },
+  "paysim-fraud": {
+    slug: "paysim-fraud",
+    title: "PaySim Fraud Analytics Platform",
+    shortTitle: "Fraud Analytics Platform",
+    kicker: "Data engineering · fraud analytics · modern data stack",
+    summary:
+      "Production-grade, end-to-end fraud analytics pipeline built on the modern data stack. PaySim synthetic transactions → GCS → PySpark → Snowflake → dbt → Airflow.",
+    longSummary:
+      "This platform simulates a real-world fraud detection data pipeline using the PaySim dataset  with 6.3 million synthetic mobile money transactions across 31 CSV batches. For this I designed every layer from scratch: batch ingestion into GCS, distributed PySpark processing into Snowflake, a full medallion architecture in dbt, and end-to-end orchestration with Airflow. The goal was to build something that mirrors production data engineering patterns at scale, not just a notebook exercise.",
+    role: "Data engineering, pipeline design, infrastructure, orchestration",
+    period: "Independent project · 2026",
+    stack: ["PySpark", "Snowflake", "dbt", "Apache Airflow", "GCS", "Terraform"],
+    highlights: [
+      "Medallion architecture across four layers: Landing (GCS) → Raw (Snowflake) → Staging (dbt incremental) → Trusted (star schema).",
+      "PySpark ingestion job reads 6.3M rows from GCS, enforces schema, and appends to Snowflake via the Spark Connector.",
+      "dbt incremental merge with watermark logic to avoid full table scans and prevent gaps during concurrent loads.",
+      "Star schema with fact tables (fct_fraud_events, fct_balance_movements, agg_account_balances) and SCD Type 2 dimension snapshots.",
+      "dbt data quality gate blocks trusted layer population if any test fails — unique keys, not-null, accepted values, FK relationships.",
+      "Airflow DAG with batch state management via Variables, supporting both automatic sequential runs and manual backfills.",
+      "Terraform IaC for GCS bucket lifecycle rules, GCP service accounts, and Snowflake resource provisioning.",
+    ],
+    outcome:
+      "The platform answers operational fraud questions — transaction counts, monetary exposure by type, account patterns — at scale, with full auditability and replay capability. Every design decision prioritises observability and production readiness over shortcut solutions.",
+    github: "https://github.com/SAndrade2209/paysim-fraud-analytics-platform",
+    href: "/projects/paysim-fraud",
+    image: snowflakeHeroImage,
+    iconImage: snowflakeIconImage,
+    imageAlt: "End-to-end architecture overview of the PaySim Fraud Analytics Platform.",
   },
 } satisfies Record<Project["slug"], Project>;
 

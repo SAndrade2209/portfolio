@@ -18,7 +18,7 @@ export default function AlbumCovers() {
             fill
             sizes="(max-width: 768px) 100vw, 1060px"
             quality={90}
-            className="object-cover"
+            className="object-contain"
             priority
           />
         </div>
@@ -57,7 +57,7 @@ export default function AlbumCovers() {
           <h1 className="text-[2rem] font-bold leading-snug tracking-[-0.02em] text-primary md:text-[2.5rem]">
             {project.title}
           </h1>
-          <p className="mt-5 text-[16px] leading-[1.8] text-foreground/55 max-w-2xl whitespace-pre-line">
+          <p className="mt-5 text-[16px] leading-[1.8] text-justify text-foreground/55 whitespace-pre-line">
             {project.longSummary}
           </p>
           <div className="mt-8 flex flex-wrap gap-8 border-t border-border pt-6 text-[13px] text-muted">
@@ -126,7 +126,7 @@ export default function AlbumCovers() {
           <p className="mb-3 text-[11px] font-semibold tracking-[0.2em] text-secondary/70 uppercase">
             Outcome
           </p>
-          <p className="text-[14px] leading-[1.8] text-foreground/60 whitespace-pre-line">
+          <p className="text-[14px] leading-[1.8] text-justify text-foreground/60 whitespace-pre-line">
             {project.outcome}
           </p>
         </section>
