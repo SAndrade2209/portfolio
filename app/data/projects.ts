@@ -1,7 +1,7 @@
 import type { StaticImageData } from "next/image";
 
-import ragImage from "@/images/rag_visual.svg";
-import ragIcon from "@/images/rag_icon.png";
+import ragImage from "@/images/rag_hero.png";
+import ragIcon from "@/images/ragicon2.png";
 import summarizeImage from "@/images/summarize_1.png";
 import summarizeIcon from "@/images/sum_icon.png";
 import albumIcon from "@/images/album_icon.png";
@@ -30,6 +30,35 @@ export type Project = {
 };
 
 const projects = {
+    "paysim-fraud": {
+    slug: "paysim-fraud",
+    title: "PaySim Fraud Analytics Platform",
+    shortTitle: "Fraud Analytics Platform",
+    kicker: "Data engineering · fraud analytics · modern data stack",
+    summary:
+      "End-to-end fraud analytics pipeline built on the modern data stack. PaySim synthetic transactions → GCS → PySpark → Snowflake → dbt → Airflow.",
+    longSummary:
+      "This platform simulates a real-world fraud detection data pipeline using the PaySim dataset  with 6.3 million synthetic mobile money transactions across 31 CSV batches. For this I designed every layer from scratch: batch ingestion into GCS, distributed PySpark processing into Snowflake, a full medallion architecture in dbt, and end-to-end orchestration with Airflow. The goal was to build something that mirrors production data engineering patterns at scale.",
+    role: "Data engineering, pipeline design, infrastructure, orchestration",
+    period: "Independent project · 2026",
+    stack: ["PySpark", "Snowflake", "dbt", "Apache Airflow", "GCS", "Terraform"],
+    highlights: [
+      "Medallion architecture across four layers: Landing (GCS) → Raw (Snowflake) → Staging (dbt incremental) → Trusted (star schema).",
+      "PySpark ingestion job reads 6.3M rows from GCS, enforces schema, and appends to Snowflake via the Spark Connector.",
+      "dbt incremental merge and transformation between layers.",
+      "Star schema with fact tables (fct_fraud_events, fct_balance_movements, agg_account_balances) and SCD Type 2 dimension snapshots.",
+      "dbt data quality gate blocks trusted layer population if any test fails — unique keys, not-null, accepted values, FK relationships.",
+      "Airflow DAG with batch state management via Variables, supporting both automatic sequential runs and manual backfills.",
+      "Terraform IaC for GCS bucket lifecycle rules, GCP service accounts, and Snowflake resource provisioning.",
+    ],
+    outcome:
+      "The platform answers operational fraud questions — transaction counts, monetary exposure by type, account patterns — at scale, with full auditability and replay capability. Every design decision prioritises observability and production readiness over shortcut solutions.",
+    github: "https://github.com/SAndrade2209/paysim-fraud-analytics-platform",
+    href: "/projects/paysim-fraud",
+    image: snowflakeHeroImage,
+    iconImage: snowflakeIconImage,
+    imageAlt: "End-to-end architecture overview of the PaySim Fraud Analytics Platform.",
+  },
   "scientific-rag": {
     slug: "scientific-rag",
     title: "Conversational AI System for Scientific Documents (RAG)",
@@ -38,18 +67,18 @@ const projects = {
     summary:
       "A multi-stage retrieval system for scientific and technical documents with hybrid search, reranking, and conversational context.",
     longSummary:
-      "I designed this project to make scientific question answering feel more dependable: better recall for niche terminology, better ranking for complex queries, and safer interactions through validation before generation.",
+      "A conversational retrieval system designed for dense scientific and technical texts. The pipeline combines multi-query expansion, hybrid dense + BM25 retrieval, Reciprocal Rank Fusion (RRF), cross-encoder reranking, and conversational memory to improve recall for rare terminology, multi-document reasoning, and context-dependent follow-up questions. Built with GPT-4.1, BAAI/bge-m3, Qdrant, and LangChain, the system delivers citation-grounded answers through a multi-stage retrieval and validation architecture optimized for technical question answering and long-form scientific documents.\n",
     role: "System design, retrieval strategy, evaluation, UX framing",
     period: "Independent project · 2026",
     stack: ["Python", "LangChain", "Qdrant", "BGE-M3", "OpenAI", "Streamlit"],
     highlights: [
-      "Hybrid retrieval with dense vectors and BM25 to capture both semantics and rare terminology.",
-      "Multi-query expansion to improve recall in multi-document and ambiguous searches.",
-      "Cross-encoder reranking to tighten relevance before answer generation.",
-      "Guardrails and memory layers for safer, more coherent conversational behaviour.",
-    ],
+    "Hybrid retrieval pipeline combining dense embeddings, BM25 sparse search, and Reciprocal Rank Fusion (RRF) to improve recall across rare scientific terminology, synonym-heavy queries, and long technical documents.",
+    "LLM-driven multi-query expansion and intent extraction to retrieve semantically diverse evidence across multiple papers, improving performance on ambiguous, conversational, and multi-step scientific questions.",
+    "Two-stage cross-encoder reranking architecture using BAAI/bge-reranker-base to filter noisy retrievals, strengthen contextual relevance, and prioritize the most informative document chunks before generation.",
+    "Guardrail validation, conversational memory, and session persistence layers designed to support safer interactions, context-aware follow-up reasoning, and coherent multi-turn scientific conversations."
+  ],
     outcome:
-      "The result is a cleaner retrieval pipeline that prioritises reliability over novelty, especially for technical material where precision matters.",
+      "The result is a production-oriented retrieval pipeline designed for scientific and technical question answering, where precision, recall, and citation grounding matter more than generative novelty. By combining hybrid retrieval, multi-query expansion, reranking, and conversational memory, the system produces more reliable answers across dense documents, rare terminology, and context-dependent follow-up queries.",
     github: "https://github.com/SAndrade2209/scientific-rag",
     href: "/projects/scientific-rag",
     image: ragImage,
@@ -107,35 +136,7 @@ const projects = {
     iconImage: albumIcon,
     imageAlt: "Preview of the zero-shot album cover analysis pipeline.",
   },
-  "paysim-fraud": {
-    slug: "paysim-fraud",
-    title: "PaySim Fraud Analytics Platform",
-    shortTitle: "Fraud Analytics Platform",
-    kicker: "Data engineering · fraud analytics · modern data stack",
-    summary:
-      "Production-grade, end-to-end fraud analytics pipeline built on the modern data stack. PaySim synthetic transactions → GCS → PySpark → Snowflake → dbt → Airflow.",
-    longSummary:
-      "This platform simulates a real-world fraud detection data pipeline using the PaySim dataset  with 6.3 million synthetic mobile money transactions across 31 CSV batches. For this I designed every layer from scratch: batch ingestion into GCS, distributed PySpark processing into Snowflake, a full medallion architecture in dbt, and end-to-end orchestration with Airflow. The goal was to build something that mirrors production data engineering patterns at scale, not just a notebook exercise.",
-    role: "Data engineering, pipeline design, infrastructure, orchestration",
-    period: "Independent project · 2026",
-    stack: ["PySpark", "Snowflake", "dbt", "Apache Airflow", "GCS", "Terraform"],
-    highlights: [
-      "Medallion architecture across four layers: Landing (GCS) → Raw (Snowflake) → Staging (dbt incremental) → Trusted (star schema).",
-      "PySpark ingestion job reads 6.3M rows from GCS, enforces schema, and appends to Snowflake via the Spark Connector.",
-      "dbt incremental merge and transformation between layers.",
-      "Star schema with fact tables (fct_fraud_events, fct_balance_movements, agg_account_balances) and SCD Type 2 dimension snapshots.",
-      "dbt data quality gate blocks trusted layer population if any test fails — unique keys, not-null, accepted values, FK relationships.",
-      "Airflow DAG with batch state management via Variables, supporting both automatic sequential runs and manual backfills.",
-      "Terraform IaC for GCS bucket lifecycle rules, GCP service accounts, and Snowflake resource provisioning.",
-    ],
-    outcome:
-      "The platform answers operational fraud questions — transaction counts, monetary exposure by type, account patterns — at scale, with full auditability and replay capability. Every design decision prioritises observability and production readiness over shortcut solutions.",
-    github: "https://github.com/SAndrade2209/paysim-fraud-analytics-platform",
-    href: "/projects/paysim-fraud",
-    image: snowflakeHeroImage,
-    iconImage: snowflakeIconImage,
-    imageAlt: "End-to-end architecture overview of the PaySim Fraud Analytics Platform.",
-  },
+
 } satisfies Record<Project["slug"], Project>;
 
 export const featuredProjects: Project[] = Object.values(projects);
