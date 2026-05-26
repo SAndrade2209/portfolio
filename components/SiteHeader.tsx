@@ -8,7 +8,7 @@ type SiteHeaderProps = {
 const navItems = [
   { href: "/" as const, label: "Home" },
   { href: "/projects" as const, label: "Projects" },
-  { href: "/chat" as const, label: "Chat" },
+  { href: "/chat" as const, label: "AI Chat" },
 ];
 
 export function SiteHeader({ active }: SiteHeaderProps) {
