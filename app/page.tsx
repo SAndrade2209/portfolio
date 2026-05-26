@@ -3,6 +3,7 @@ import Link from "next/link";
 import { SiteHeader } from "@/components/SiteHeader";
 import { featuredProjects } from "@/app/data/projects";
 import { ProfileTabs } from "@/components/ProfileTabs";
+import { ChatNudge } from "@/components/ChatNudge";
 
 const selectedProjects = featuredProjects.filter((p) =>
   ["paysim-fraud", "summarization", "scientific-rag"].includes(p.slug)
@@ -104,6 +105,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+         {/* ── Chat nudge ── */}
+        <ChatNudge />
 
         {/* ── About ── */}
         <section className="mb-8">
