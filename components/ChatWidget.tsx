@@ -38,7 +38,7 @@ export function ChatWidget() {
             ? "opacity-100 scale-100 pointer-events-auto"
             : "opacity-0 scale-95 pointer-events-none"
         }`}
-        style={{ width: "min(460px, calc(100vw - 2rem))", height: "min(620px, calc(100vh - 5rem))" }}
+        style={{ width: "min(700px, calc(100vw - 3rem))", height: "min(82vh, calc(100vh - 4rem))" }}
       >
         {/* Header */}
         <div className="flex items-center justify-between border-b border-border px-5 py-3.5 shrink-0">
