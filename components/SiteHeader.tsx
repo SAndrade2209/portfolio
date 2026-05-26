@@ -2,12 +2,13 @@
 import Link from "next/link";
 
 type SiteHeaderProps = {
-  active: "/" | "/projects";
+  active: "/" | "/projects" | "/chat";
 };
 
 const navItems = [
   { href: "/" as const, label: "Home" },
   { href: "/projects" as const, label: "Projects" },
+  { href: "/chat" as const, label: "Chat" },
 ];
 
 export function SiteHeader({ active }: SiteHeaderProps) {
