@@ -10,8 +10,11 @@ import snowflakeHeroImage from "@/images/snowflake_project/heropaysim.png";
 import snowflakeIconImage from "@/images/snowflake_project/iconsnowflake.png";
 
 
+export type ProjectCategory = "data-engineering" | "ai" | "research";
+
 export type Project = {
   slug: "scientific-rag" | "summarization" | "album-covers" | "paysim-fraud";
+  category: ProjectCategory;
   title: string;
   shortTitle: string;
   kicker: string;
@@ -32,6 +35,7 @@ export type Project = {
 const projects = {
     "paysim-fraud": {
     slug: "paysim-fraud",
+    category: "data-engineering" as const,
     title: "PaySim Fraud Analytics Platform",
     shortTitle: "Fraud Analytics Platform",
     kicker: "Data engineering · fraud analytics · modern data stack",
@@ -61,6 +65,7 @@ const projects = {
   },
   "scientific-rag": {
     slug: "scientific-rag",
+    category: "ai" as const,
     title: "Conversational AI System for Scientific Documents (RAG)",
     shortTitle: "Scientific RAG",
     kicker: "LLM systems · retrieval · guardrails",
@@ -87,6 +92,7 @@ const projects = {
   },
   summarization: {
     slug: "summarization",
+    category: "ai" as const,
     title: "AI Literature Synthesis Pipeline",
     shortTitle: "Literature synthesis",
     kicker: "Document intelligence · summarisation · evaluation",
@@ -112,6 +118,7 @@ const projects = {
   },
   "album-covers": {
     slug: "album-covers",
+    category: "research" as const,
     title: "Zero-shot Object Detection for Music Album Covers",
     shortTitle: "Zero-shot Visual Analysis",
     kicker: "Computer vision · multimodal ML · zero-shot learning",
