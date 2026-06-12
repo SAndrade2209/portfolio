@@ -25,17 +25,17 @@ export default function Home() {
 
         {/* ── Hero ── */}
         <section className="mb-24">
-          <h1 className="animate-fade-in-up delay-100 text-[2.6rem] font-bold leading-[1.2] text-foreground mb-5 tracking-[-0.02em]">
+          <h1 className="animate-fade-in-up delay-100 text-[3.2rem] font-bold leading-[1.15] text-foreground mb-5 tracking-[-0.02em]">
             hi, selene here.
           </h1>
-          <p className="animate-fade-in-up delay-200 text-[17px] leading-[1.8] text-muted max-w-lg">
+          <p className="animate-fade-in-up delay-200 text-[19px] leading-[1.8] text-muted max-w-xl">
             Data Engineer &amp; AI Systems Engineer. I build production-grade data
             pipelines and RAG systems — optimized for reliability and scale.
           </p>
           <div className="animate-fade-in-up delay-300 mt-8 flex flex-wrap gap-6">
             <a
               href="mailto:selene.andradelopez@gmail.com"
-              className="text-[13px] text-primary hover:opacity-75 transition-opacity"
+              className="text-[15px] text-primary hover:opacity-75 transition-opacity"
             >
               Say hi! →
             </a>
@@ -43,7 +43,7 @@ export default function Home() {
               href="https://github.com/SAndrade2209"
               target="_blank"
               rel="noreferrer"
-              className="text-[13px] text-muted hover:text-foreground transition-colors"
+              className="text-[15px] text-muted hover:text-foreground transition-colors"
             >
               GitHub
             </a>
@@ -51,14 +51,14 @@ export default function Home() {
               href="https://www.linkedin.com/in/selene-andrade-a23367163/"
               target="_blank"
               rel="noreferrer"
-              className="text-[13px] text-muted hover:text-foreground transition-colors"
+              className="text-[15px] text-muted hover:text-foreground transition-colors"
             >
               LinkedIn
             </a>
             <a
               href="/cv07052026.pdf"
               download
-              className="text-[13px] text-muted hover:text-foreground transition-colors"
+              className="text-[15px] text-muted hover:text-foreground transition-colors"
             >
               CV ↓
             </a>
@@ -71,7 +71,7 @@ export default function Home() {
             <p className="text-[11px] font-semibold tracking-[0.2em] text-secondary uppercase mb-7">
               / about me
             </p>
-            <div className="flex flex-col gap-4 text-[15px] leading-[1.85] text-muted">
+            <div className="flex flex-col gap-4 text-[17px] leading-[1.85] text-muted">
               <p>
                 Data Engineer with experience building production-grade data
                 pipelines using PySpark, Databricks, and AWS. I&apos;ve worked on
@@ -91,10 +91,10 @@ export default function Home() {
             </div>
 
             <div className="mt-10">
-              <p className="text-[11px] font-semibold tracking-[0.2em] text-secondary/60 uppercase mb-5">
+              <p className="text-[12px] font-semibold tracking-[0.2em] text-secondary/60 uppercase mb-5">
                 technologies
               </p>
-              <ul className="grid grid-cols-2 gap-y-2 gap-x-8 max-w-sm">
+              <ul className="grid grid-cols-2 gap-y-3 gap-x-8 max-w-md">
                 {[
                   "Python", "PySpark", "SQL", "AWS",
                   "Databricks", "Delta Lake", "Airflow", "dbt",
@@ -103,7 +103,7 @@ export default function Home() {
                   <li
                     key={tech}
                     style={{ animationDelay: `${i * 60}ms` }}
-                    className="animate-slide-in-left flex items-center gap-2 text-[13px] text-muted"
+                    className="animate-slide-in-left flex items-center gap-2 text-[15px] text-muted"
                   >
                     <span className="text-primary text-[11px]">▹</span>
                     {tech}
