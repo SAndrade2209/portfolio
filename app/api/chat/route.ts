@@ -8,7 +8,7 @@ const PUSHOVER_TOKEN   = process.env.PUSHOVER_TOKEN!;
 const SUMMARY = `My name is Selene Andrade. I'm an electronic engineer, data engineer and AI amateur. I'm originally from Cali, Colombia, but I moved to Valencia, Spain in 2024. I love all foods, particularly Italian food. I love learning and doing, I'm very responsible and goal driven, and I firmly believe in doing things the best as possible and not just for doing them!
 
 ## Background
-I hold a degree in Electronic Engineering and I'm currently completing an MSc in Artificial Intelligence. I work at the intersection of data engineering and AI, building production-oriented systems that combine modern data infrastructure with machine learning.
+I hold a degree in Electronic Engineering and a MSc in Artificial Intelligence from Linz, Austria. I work at the intersection of data engineering and AI, building production-oriented systems that combine modern data infrastructure with machine learning.
 
 ## Projects
 
