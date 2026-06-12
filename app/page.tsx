@@ -11,8 +11,8 @@ const selectedProjects = featuredProjects.filter((p) =>
 );
 
 const categoryMeta: Record<ProjectCategory, { label: string; color: string }> = {
-  "data-engineering": { label: "Data Engineering", color: "#85ebd9" },
-  "ai":              { label: "AI Systems",        color: "#D4B96A" },
+  "data-engineering": { label: "Data Engineering", color: "#7DC4AE" },
+  "ai":              { label: "AI Systems",        color: "#C49A70" },
   "research":        { label: "Research",           color: "#B5705A" },
 };
 

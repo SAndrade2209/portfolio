@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { ChatInterface } from "@/components/ChatInterface";
 
 export function ChatWidget() {
   const [open, setOpen] = useState(false);
@@ -17,14 +18,13 @@ export function ChatWidget() {
       <button
         onClick={() => setOpen(true)}
         aria-label="Chat with Selene's AI"
-        className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 rounded-full bg-primary px-5 py-3 shadow-[0_4px_20px_rgba(30,58,95,0.35)] transition-all hover:scale-105 hover:shadow-[0_6px_28px_rgba(30,58,95,0.45)] active:scale-95"
+        className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 rounded-full bg-primary px-5 py-3 shadow-[0_4px_20px_rgba(0,0,0,0.35)] transition-all hover:scale-105 hover:opacity-90 active:scale-95"
       >
-        {/* Pulse ring */}
         <span className="relative flex h-2.5 w-2.5">
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white/60 opacity-75" />
-          <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-white" />
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-background/50 opacity-75" />
+          <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-background" />
         </span>
-        <span className="text-[13px] font-semibold text-white tracking-tight">
+        <span className="text-[13px] font-semibold text-background tracking-tight">
           Chat with my AI
         </span>
       </button>
@@ -39,21 +39,21 @@ export function ChatWidget() {
 
       {/* Popup panel */}
       <div
-        className={`fixed bottom-6 right-6 z-50 flex flex-col rounded-2xl border border-border bg-surface shadow-[0_8px_40px_rgba(0,0,0,0.18)] transition-all duration-300 ${
+        className={`fixed bottom-6 right-6 z-50 flex flex-col rounded-2xl border border-border bg-background shadow-[0_8px_40px_rgba(0,0,0,0.3)] transition-all duration-300 overflow-hidden ${
           open
             ? "opacity-100 scale-100 pointer-events-auto"
             : "opacity-0 scale-95 pointer-events-none"
         }`}
-        style={{ width: "min(700px, calc(100vw - 3rem))", height: "min(82vh, calc(100vh - 4rem))" }}
+        style={{ width: "min(680px, calc(100vw - 3rem))", height: "min(80vh, 680px)" }}
       >
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-border px-5 py-3.5 shrink-0">
+        <div className="flex items-center justify-between border-b border-border px-5 py-3.5 shrink-0 bg-surface">
           <div className="flex items-center gap-2.5">
             <span className="relative flex h-2.5 w-2.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-secondary/60 opacity-75" />
-              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-secondary" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/50 opacity-75" />
+              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-primary" />
             </span>
-            <span className="text-[13px] font-semibold text-primary">Chat with Selene</span>
+            <span className="text-[13px] font-semibold text-foreground">Chat with Selene</span>
             <span className="rounded-full bg-surface-strong px-2 py-0.5 text-[10px] text-muted/70 font-medium tracking-wide uppercase">AI</span>
           </div>
           <button
@@ -67,19 +67,11 @@ export function ChatWidget() {
           </button>
         </div>
 
-        {/* iframe */}
-        <div className="flex-1 overflow-hidden rounded-b-2xl">
-          {open && (
-            <iframe
-              src="https://seleneandrade22-career-conversation.hf.space"
-              className="h-full w-full border-0"
-              allow="microphone"
-              title="Chat with Selene — AI Career Agent"
-            />
-          )}
+        {/* Chat UI */}
+        <div className="flex-1 overflow-hidden">
+          {open && <ChatInterface compact />}
         </div>
       </div>
     </>
   );
 }
-

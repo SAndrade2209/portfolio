@@ -7,12 +7,12 @@ import type { Project, ProjectCategory } from "@/app/data/projects";
 const categoryMeta: Record<ProjectCategory, { label: string; color: string; description: string }> = {
   "data-engineering": {
     label: "Data Engineering",
-    color: "#85ebd9",
+    color: "#7DC4AE",
     description: "Production pipelines, lakehouse architectures, and orchestration systems.",
   },
   "ai": {
     label: "AI Systems",
-    color: "#D4B96A",
+    color: "#C49A70",
     description: "LLM pipelines, retrieval-augmented generation, and document intelligence.",
   },
   "research": {

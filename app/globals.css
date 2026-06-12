@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --primary:       #85ebd9;   /* mint teal */
-  --secondary:     #3d898d;   /* deep teal */
-  --background:    #0f1923;   /* dark navy */
-  --surface:       #162231;   /* card navy */
-  --surface-strong:#1a2a3d;   /* hover surface */
-  --border:        #1e2d40;   /* border navy */
-  --foreground:    #e2dddf;   /* off-white */
-  --muted:         #b0acb0;   /* cool gray */
-  --accent:        #85ebd9;
+  --primary:       #7DC4AE;   /* sage teal — muted, warm, not electric */
+  --secondary:     #C49A70;   /* warm amber — for section labels */
+  --background:    #0f1923;   /* navy (keep) */
+  --surface:       #162231;   /* card navy (keep) */
+  --surface-strong:#1a2a3d;   /* hover (keep) */
+  --border:        #1e2d40;   /* border (keep) */
+  --foreground:    #EDE5D8;   /* warm cream — not cold white */
+  --muted:         #A09488;   /* warm taupe gray */
+  --accent:        #7DC4AE;
 
   /* Category accent colors */
-  --cat-data:      #85ebd9;   /* teal */
-  --cat-ai:        #D4B96A;   /* warm gold */
+  --cat-data:      #7DC4AE;   /* sage teal */
+  --cat-ai:        #C49A70;   /* warm amber */
   --cat-research:  #B5705A;   /* terracotta */
 }
 
@@ -57,7 +57,7 @@ a, button {
 }
 
 ::selection {
-  background: rgba(133, 235, 217, 0.15);
+  background: rgba(125, 196, 174, 0.18);
   color: var(--primary);
 }
 
