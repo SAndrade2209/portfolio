@@ -19,16 +19,16 @@ const categoryMeta: Record<ProjectCategory, { label: string; color: string }> = 
 export default function Home() {
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <div className="mx-auto max-w-[1100px] px-8 py-0 md:px-20">
+      <div className="mx-auto max-w-[1100px] px-5 py-0 sm:px-8 md:px-20">
 
         <SiteHeader active="/" />
 
         {/* ── Hero ── */}
         <section className="mb-24">
-          <h1 className="animate-fade-in-up delay-100 text-[3.2rem] font-bold leading-[1.15] text-foreground mb-5 tracking-[-0.02em]">
+          <h1 className="animate-fade-in-up delay-100 text-[2rem] sm:text-[2.6rem] md:text-[3.2rem] font-bold leading-[1.15] text-foreground mb-5 tracking-[-0.02em]">
             hi, selene here.
           </h1>
-          <p className="animate-fade-in-up delay-200 text-[19px] leading-[1.8] text-muted max-w-xl">
+          <p className="animate-fade-in-up delay-200 text-[16px] sm:text-[17px] md:text-[19px] leading-[1.8] text-muted max-w-xl">
             Data Engineer &amp; AI Systems Engineer. I build production-grade data
             pipelines and RAG systems — optimized for reliability and scale.
           </p>

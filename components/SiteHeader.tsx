@@ -55,13 +55,13 @@ const iconLinks = [
 
 export function SiteHeader({ active }: SiteHeaderProps) {
   return (
-    <header className="flex items-center justify-between py-8 mb-16">
+    <header className="flex flex-col gap-4 py-6 mb-12 sm:flex-row sm:items-center sm:justify-between sm:py-8 sm:mb-16">
       <Link href="/" className="text-[15px] font-semibold text-foreground hover:text-primary transition-colors tracking-tight">
         selene andrade
       </Link>
 
-      <div className="flex items-center gap-6">
-        <nav className="flex items-center gap-7">
+      <div className="flex items-center gap-4 sm:gap-6">
+        <nav className="flex items-center gap-4 sm:gap-7">
           {navItems.map((item) => {
             const isActive = item.href === active;
             return (
@@ -78,7 +78,7 @@ export function SiteHeader({ active }: SiteHeaderProps) {
           })}
         </nav>
 
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-0.5 sm:gap-1">
           {iconLinks.map((link) => (
             <a
               key={link.label}

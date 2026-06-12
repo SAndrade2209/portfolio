@@ -68,7 +68,7 @@ export default function Projects() {
 
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <div className="mx-auto max-w-[1100px] px-8 py-0 md:px-20">
+      <div className="mx-auto max-w-[1100px] px-5 py-0 sm:px-8 md:px-20">
         <SiteHeader active="/projects" />
 
         <FadeIn>
