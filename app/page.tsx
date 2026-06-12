@@ -19,7 +19,7 @@ const categoryMeta: Record<ProjectCategory, { label: string; color: string }> = 
 export default function Home() {
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <div className="mx-auto max-w-[760px] px-6 py-0 md:px-8">
+      <div className="mx-auto max-w-[1100px] px-8 py-0 md:px-20">
 
         <SiteHeader active="/" />
 

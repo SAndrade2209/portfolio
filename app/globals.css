@@ -1,18 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --primary:       #85ebd9;
-  --secondary:     #3d898d;
-  --background:    #0f1923;
-  --surface:       #162231;
-  --surface-strong:#1a2a3d;
-  --border:        #1e2d40;
-  --foreground:    #e2dddf;
-  --muted:         #b0acb0;
+  --primary:       #85ebd9;   /* mint teal */
+  --secondary:     #3d898d;   /* deep teal */
+  --background:    #0f1923;   /* dark navy */
+  --surface:       #162231;   /* card navy */
+  --surface-strong:#1a2a3d;   /* hover surface */
+  --border:        #1e2d40;   /* border navy */
+  --foreground:    #e2dddf;   /* off-white */
+  --muted:         #b0acb0;   /* cool gray */
   --accent:        #85ebd9;
 
-  /* Category accent colors — warm palette */
-  --cat-data:      #85ebd9;   /* teal  */
+  /* Category accent colors */
+  --cat-data:      #85ebd9;   /* teal */
   --cat-ai:        #D4B96A;   /* warm gold */
   --cat-research:  #B5705A;   /* terracotta */
 }
