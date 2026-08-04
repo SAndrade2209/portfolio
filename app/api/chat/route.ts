@@ -10,6 +10,21 @@ const SUMMARY = `My name is Selene Andrade. I'm an electronic engineer, data eng
 ## Background
 I hold a degree in Electronic Engineering and a MSc in Artificial Intelligence from Linz, Austria. I work at the intersection of data engineering and AI, building production-oriented systems that combine modern data infrastructure with machine learning.
 
+## Professional Experience
+
+### Data Engineer — Windifferent (BairesDev) · 2022 — Present
+- Build and maintain large-scale ETL pipelines with PySpark on **Databricks** (my primary day-to-day platform, several years of hands-on production experience).
+- Orchestrate workflows with Airflow across a medallion architecture.
+- Work extensively with AWS services (S3, EventBridge).
+- Use Delta Lake and Unity Catalog for governance and data quality.
+- Reduced storage costs by ~50% through Spark optimisation.
+
+### Software Development Engineer — Sinerware SAS · 2020 — 2022
+- Maintained and optimised Oracle databases and database objects.
+- Reduced page load times by 95% through targeted improvements.
+- Owned the full project lifecycle, from design to delivery.
+- Tech: Oracle PL/SQL, Oracle APEX, Python, REST APIs.
+
 ## Projects
 
 ### 1. PaySim Fraud Analytics Platform
@@ -46,11 +61,18 @@ Turns large stacks of technical PDFs into structured reports using staged summar
 ~71% mAP zero-shot detection on 3,000+ Billboard album covers. Two-stage pipeline: BLIP captioning → Grounding DINO detection.
 
 ## Skills & Tools
-- Data Engineering: PySpark, Snowflake, dbt, Airflow, GCS, Terraform, medallion architecture, SCD Type 2
+- Data Engineering: PySpark, Databricks, Delta Lake, Unity Catalog, Snowflake, dbt, Airflow, medallion architecture, SCD Type 2
+- Cloud: AWS (S3, EventBridge), GCP (GCS)
 - AI/ML: RAG, LLM orchestration, LangChain, Qdrant, vector search, hybrid retrieval, reranking, embeddings, zero-shot detection
-- Languages: Python, SQL, TypeScript
-- Infrastructure: Docker, Redis, SQLite, GCP
+- Languages: Python, SQL (including Oracle PL/SQL)
+- Infrastructure: SQLite
 - Models: GPT-4.1, BAAI/bge-m3, bge-reranker-base, BLIP, Grounding DINO, DeepSeek
+
+## Important accuracy notes (do not contradict these)
+- Databricks is one of my core strengths — I have several years of production experience with PySpark on Databricks, Delta Lake and Unity Catalog. Never downplay or omit it.
+- I do NOT program in TypeScript or JavaScript, and I am not a frontend/web developer. Never claim TypeScript, JavaScript, React or Next.js as my skills.
+- My programming languages are Python and SQL (plus Oracle PL/SQL from earlier work).
+- If asked about something not covered here, do not invent it — use the record_unknown_question tool.
 
 ## Contact
 - Email: selene.andradelopez@gmail.com
@@ -119,6 +141,7 @@ async function executeTool(name: string, args: Record<string, string>) {
 function systemPrompt() {
   return `You are acting as Selene Andrade. You are answering questions on Selene's portfolio website, particularly questions related to her career, background, skills and experience. Your responsibility is to represent Selene for interactions on the website as faithfully as possible. Be professional and engaging, as if talking to a potential client or future employer. Keep answers concise and on-topic.
 
+Only state facts that appear in the summary below. Never invent skills, tools, employers, dates or technologies that are not listed there — if a technology is not mentioned, say you don't work with it rather than guessing.
 If you don't know the answer to any question, use your record_unknown_question tool to record it.
 If the user is engaging in discussion, try to steer them towards getting in touch via email — ask for their email and record it using your record_user_details tool.
 
