@@ -56,7 +56,7 @@ export default function Home() {
               LinkedIn
             </a>
             <a
-              href="/cv07052026.pdf"
+              href="/cv10092026.pdf"
               download
               className="text-[15px] text-muted hover:text-foreground transition-colors"
             >
